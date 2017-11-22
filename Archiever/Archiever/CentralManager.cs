@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace Archiever
 {
@@ -28,6 +29,13 @@ namespace Archiever
             currentUser = new User("Admin", "admin");
         }
 
+        public void EndManager()
+        {
+            //SaveSerializedOb(keeper, saveFilePath);
+            //SaveSerializedOb(currentUser, userSaveFilePath);
+        }
+
+
         private T LoadSerializedOb<T>(string filePath)
         {
 
@@ -42,18 +50,22 @@ namespace Archiever
             }
             else return default(T);
         }
-       
 
-        private void SaveKeeper()
+        private void SaveSerializedOb(object serializedOb, string filePath)
         {
-            if (keeper == null) return;
-            using (FileStream fs = new FileStream(saveFilePath, FileMode.OpenOrCreate))
+            try
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(fs, keeper);
+                using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, serializedOb);
+                }
             }
-        }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }       
 
         public List<Section> sections { get { return keeper.sections; } }
         public List<Problem> problems { get { return keeper.problems; } }

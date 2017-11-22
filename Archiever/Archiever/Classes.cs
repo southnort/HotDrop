@@ -90,11 +90,11 @@ namespace Archiever
     [Serializable]
     public class User
     {
-        string login;
+        public string login { get; private set; }
         string password;
         int levelOfAccess;
         string sessionID;
-        List<Daily> dailys;
+        public List<Daily> dailys;
 
         public User(string name, string pass)
         {
@@ -109,11 +109,10 @@ namespace Archiever
     [Serializable]
     public class Daily
     {
-        public Daily(string num, string org, string message)
+        public Daily(string num, string message)
         {
             this.number = num;
-            this.isDone = false;
-            this.organisation = org;
+            this.isDone = false;           
             this.text = message;
             this.startDate = DateTime.Now.ToString();
         }
@@ -130,8 +129,7 @@ namespace Archiever
 
 
         public string number { get; private set; }
-        public bool isDone { get; set; }
-        public string organisation { get; private set; }
+        public bool isDone { get; set; }       
         public string text { get; private set; }
         public string startDate { get; private set; }
         public string endDate { get; private set; }
@@ -151,7 +149,7 @@ namespace Archiever
                 Text = caption,
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
-                
+
             };
             Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
             TextBox textBox = new TextBox() { Left = 50, Top = 40, Width = 400 };
@@ -165,30 +163,39 @@ namespace Archiever
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
         }
 
-        public static string AddNewDailyDialog(string text, string caption)
+        public static Daily AddNewDailyDialog()
         {
             Form prompt = new Form()
             {
                 Width = 400,
                 Height = 250,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = caption,
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
 
             };
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-            TextBox textBox = new TextBox() { Left = 50, Top = 40, Width = 100 };
-            RichTextBox textBox2 = new RichTextBox() { Left = 50, Top = 70, Width = 250, Height = 100, BorderStyle = BorderStyle.None };
+            Label textLabel = new Label() { Left = 50, Top = 10, Text = "Титул:", Width = 300 };
+            TextBox textBox = new TextBox() { Left = 50, Top = 25, Width = 150 };
+            Label label2 = new Label() { Left = 50, Top = 60, Text = "Краткое описание:", Width = 300 };
+            RichTextBox textBox2 = new RichTextBox() { Left = 50, Top = 75, Width = 290, Height = 90, BorderStyle = BorderStyle.None };
             Button confirmation = new Button() { Text = "Ok", Left = 150, Width = 100, Top = 180, DialogResult = DialogResult.OK };
             confirmation.Click += (sender, e) => { prompt.Close(); };
             prompt.Controls.Add(textBox);
             prompt.Controls.Add(textBox2);
             prompt.Controls.Add(confirmation);
-            prompt.Controls.Add(textLabel);            
+            prompt.Controls.Add(textLabel);
+            prompt.Controls.Add(label2);
             prompt.AcceptButton = confirmation;
 
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : ""; ;
+            return prompt.ShowDialog() == DialogResult.OK ? CheckEntrie(textBox.Text, textBox2.Text) : null;        
+        }
+
+        private static Daily CheckEntrie(string num, string text)
+        {
+            if (num == null || null == "")
+                return null;
+
+            else return new Daily(num, text);
         }
     }
 }

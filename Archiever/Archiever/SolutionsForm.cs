@@ -20,47 +20,35 @@ namespace Archiever
         public SolutionsForm()
         {
             InitializeComponent();
+            Start();
+        }
+
+        private void Start()
+        {
+            ShowSections();
             foreach (Section section in CentralManager.Instance.sections)
             {
                 if (section.isActual)
                     comboBox1.Items.Add(section.name);
             }
-            
         }
 
 
-        private void Start()
+        private void ShowSections()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < CentralManager.Instance.sections.Count; i++)
             {
-                CentralManager.Instance.sections.Add(new Section(i.ToString(), CentralManager.Instance.currentUser));
-                CentralManager.Instance.problems.Add(new Problem(CentralManager.Instance.sections[i], "Problem " + i.ToString(), "Problem " + i.ToString(), CentralManager.Instance.currentUser));
-            }
+                Section section = CentralManager.Instance.sections[i];
+                Button button = CreateButton(section.name, new EventHandler(ClickSectionButton));
 
-            ShowStickers(CentralManager.Instance.problems.ToArray());
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string result = Prompt.ShowDialog("Новый тип", "Введите название нового раздела");
-            if (result != "")
-            {
-                Section newSection = new Section(result, CentralManager.Instance.currentUser);
-                CentralManager.Instance.sections.Add(newSection);
-                comboBox1.Items.Add(newSection.name);
+                int width = i % 3 * (defaultWidth + spacingX);
+                int height = i / 3 * (defaultHeight + spacingY);
+                button.Location = new Point(width, height);
             }
         }
-
-
 
         private void ShowStickers(Problem[] problems)
         {
-
             for (int i = 0; i < problems.Length; i++)
             {
                 Button button = CreateButton(problems[i].name, new EventHandler(ClickOnProblem));
@@ -80,6 +68,30 @@ namespace Archiever
         {
             MessageBox.Show(((Button)sender).Name);
         }
+
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string result = Prompt.ShowDialog("Новый тип", "Введите название нового раздела");
+            if (result != "")
+            {
+                Section newSection = new Section(result, CentralManager.Instance.currentUser);
+                CentralManager.Instance.sections.Add(newSection);
+                comboBox1.Items.Add(newSection.name);
+                ShowSections();
+            }
+        }
+
+        private void ClickSectionButton(object sender, EventArgs e)
+        {
+
+        }        
 
         private Button CreateButton(string text, EventHandler clickMethod)
         {
