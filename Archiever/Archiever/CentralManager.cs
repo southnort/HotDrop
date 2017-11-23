@@ -23,16 +23,17 @@ namespace Archiever
         public void StartManager()
         {
             keeper = LoadSerializedOb<Keeper>(saveFilePath);
-            // currentUser = LoadSerializedOb<User>(userSaveFilePath);    
+            currentUser = LoadSerializedOb<User>(userSaveFilePath);
 
-            keeper = new Keeper();
-            currentUser = new User("Admin", "admin");
+            if (keeper == null) keeper = new Keeper();
+            if (currentUser == null) currentUser = new User("Admin", "admin");
         }
+           
 
         public void EndManager()
         {
-            //SaveSerializedOb(keeper, saveFilePath);
-            //SaveSerializedOb(currentUser, userSaveFilePath);
+            SaveSerializedOb(keeper, saveFilePath);
+            SaveSerializedOb(currentUser, userSaveFilePath);
         }
 
 
@@ -41,14 +42,25 @@ namespace Archiever
 
             if (File.Exists(filePath))
             {
-                using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                try
+                {                   
+                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                    {
+                        BinaryFormatter bf = new BinaryFormatter();
+                        T tempOb = (T)bf.Deserialize(fs);
+                        return tempOb;
+                    }
+                }
+                catch (Exception ex)
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    T tempOb = (T)bf.Deserialize(fs);
-                    return tempOb;
+                    MessageBox.Show(ex.ToString());
+                    return default(T);
                 }
             }
-            else return default(T);
+            else 
+            {               
+                return default(T);
+            }
         }
 
         private void SaveSerializedOb(object serializedOb, string filePath)

@@ -41,5 +41,13 @@ namespace Archiever
                 richTextBox3.Text += "  Error";
             }
         }
+
+        private void NewCallForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

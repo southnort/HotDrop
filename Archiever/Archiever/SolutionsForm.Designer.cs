@@ -89,9 +89,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "SolutionsForm";
             this.Text = "Поиск решения";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SolutionsForm_KeyDown);
             this.ResumeLayout(false);
 
         }
