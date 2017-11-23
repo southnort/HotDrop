@@ -60,6 +60,12 @@
     <Compile Include="NewCallForm.Designer.cs">
       <DependentUpon>NewCallForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpenSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenSolution.Designer.cs">
+      <DependentUpon>OpenSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProblemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewCallForm.resx">
       <DependentUpon>NewCallForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenSolution.resx">
+      <DependentUpon>OpenSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProblemForm.resx">
       <DependentUpon>ProblemForm.cs</DependentUpon>

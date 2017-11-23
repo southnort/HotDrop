@@ -71,14 +71,12 @@ namespace Archiever
 
         private void ClickOnProblem(object sender, EventArgs e)
         {
-                   
-        }
+            int numOfProblem = int.Parse(((Button)sender).Name);
+            Problem problem = currentSection.problems[numOfProblem];
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int numOfSection = ((ComboBox)sender).SelectedIndex;
-            SelectSection(numOfSection);
-        }
+            ProblemForm form = new ProblemForm(problem);
+            form.Show();
+        }       
 
         private void SelectSection(int num)
         {
@@ -101,20 +99,7 @@ namespace Archiever
             }
             list.Sort();
             return list;
-        }
-        
-       
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string result = Prompt.ShowDialog("Новый тип", "Введите название нового раздела");
-            if (result != "")
-            {
-                Section newSection = new Section(result, CentralManager.Instance.currentUser);
-                CentralManager.Instance.sections.Add(newSection);
-                comboBox1.Items.Add(newSection.name);
-                ShowSections();
-            }
-        }
+        }    
 
         private void ClickSectionButton(object sender, EventArgs e)
         {
@@ -139,11 +124,31 @@ namespace Archiever
             return button;
         }
 
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int numOfSection = ((ComboBox)sender).SelectedIndex;
+            SelectSection(numOfSection);
+        }
+
         private void SolutionsForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string result = Prompt.ShowDialog("Новый тип", "Введите название нового раздела");
+            if (result != "")
+            {
+                Section newSection = new Section(result, CentralManager.Instance.currentUser);
+                CentralManager.Instance.sections.Add(newSection);
+                comboBox1.Items.Add(newSection.name);
+                ShowSections();
             }
         }
 

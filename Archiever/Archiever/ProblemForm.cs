@@ -12,7 +12,7 @@ namespace Archiever
 {
     public partial class ProblemForm : Form
     {
-        private Problem problem;
+        private Problem problem;      
         private int defaultWidth = 190;
         private int defaultHeight = 80;
         private int spacingX = 5;
@@ -22,7 +22,9 @@ namespace Archiever
 
         public ProblemForm(Problem problem)
         {
-            this.problem = problem;            
+            this.problem = problem;          
+            
+            this.problem.IncreaseHeat();
             InitializeComponent();
             Start();
         }
@@ -73,12 +75,14 @@ namespace Archiever
 
         private void RefreshDescription()
         {
-            richTextBox2.Text = problem.name;
-            richTextBox1.Text = problem.description;
+            richTextBox1.Text = problem.name;
+            richTextBox2.Text = problem.description;
+            richTextBox3.Text = problem.comments;
         }
 
         private void RefreshSolutions()
         {
+            problem.solutions.Sort();
             for (int i = 0; i < problem.solutions.Count; i++)
             {
                 Button button = CreateButton(problem.solutions[i].shortDescription, ClickOnSolution);
@@ -92,10 +96,14 @@ namespace Archiever
 
         private void ClickOnSolution(object sender, EventArgs e)
         {
+            int numOfsolution = int.Parse(((Button)sender).Name);
+            Solution solution = problem.solutions[numOfsolution];
 
+            OpenSolution form = new OpenSolution(solution);
+            form.Show();
         }
 
-      private Button CreateButton(string text, EventHandler clickMethod)
+        private Button CreateButton(string text, EventHandler clickMethod)
         {
             Button button = new Button()
             {
@@ -111,21 +119,45 @@ namespace Archiever
             return button;
         }
 
-
-
-
-
-
-
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void SaveProblem()
         {
-
+            problem.Solved(checkBox1.Checked, CentralManager.Instance.currentUser);
+            problem.SetName(richTextBox1.Text, CentralManager.Instance.currentUser);
+            problem.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);
+            problem.comments = richTextBox3.Text;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
+
+
+
+
+
+
+       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveProblem();
+            this.Close();
+        }               
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int numOfSection = ((ComboBox)sender).SelectedIndex;
+            Section section = CentralManager.Instance.sections[numOfSection];
+            problem = new Problem(section, CentralManager.Instance.currentUser);
+            RefreshForm();
+        }                       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveProblem();
+            OpenSolution form = new OpenSolution(new Solution(this.problem, CentralManager.Instance.currentUser));
+        }        
     }
 }

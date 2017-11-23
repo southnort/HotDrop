@@ -15,6 +15,7 @@ namespace Archiever
         public DateTime creationDate { get; private set; } 
         public User createdBy { get; private set; }
         public bool isActual;
+        public List<Problem> problems;
 
         public Section(string name,User createdBy)
         {
@@ -22,6 +23,7 @@ namespace Archiever
             this.createdBy = createdBy;
             creationDate = DateTime.Now;
             isActual = true;
+            problems = new List<Problem>();
         }       
     }
 
@@ -40,19 +42,24 @@ namespace Archiever
         public float heat { get; private set; }
         public string description { get; private set; }
         public List<Solution> solutions;
-        
+        public string comments;
+
 
         public Problem(Section section, User createdUser)
-        {            
-            this.section = section;           
+        {
+            this.section = section;            
 
             createdBy = createdUser;
             creatingDateTime = DateTime.Now;
+            changedBy = createdUser;
+            lastChangingDateTime = DateTime.Now;
 
             isActual = true;
             isSolved = false;
             heat = 30f;
             solutions = new List<Solution>();
+            comments = string.Empty;
+            this.section.problems.Add(this);
         }
 
         public int CompareTo(object obj)
@@ -69,13 +76,35 @@ namespace Archiever
             changedBy = user;
             lastChangingDateTime = DateTime.Now;
         }
+       
 
+        private void Changed(User user)
+        {
+            lastChangingDateTime = DateTime.Now;
+            changedBy = user;
+        }
 
+        public void SetName(string name, User user)
+        {
+            this.name = name;
+            Changed(user);
+        }
+
+        public void SetDescription(string text, User user)
+        {
+            description = text;
+            Changed(user);
+        }
+
+        public void IncreaseHeat()
+        {
+            heat++;
+        }        
     }
 
 
     [Serializable]
-    public class Solution
+    public class Solution : IComparable
     {
         public Problem problem { get; private set; }
         public string shortDescription { get; private set; }
@@ -84,21 +113,63 @@ namespace Archiever
         public DateTime creatingDateTime { get; private set; }
         public User changedBy { get; private set; }
         public DateTime lastChangingDateTime { get; private set; }
-        public List<string> comments;
+        public string comment { get; private set; }
         public bool isActual { get; private set; }
-        public float heat { get; private set; }
+        public float heat { get; private set; }        
 
-        public Solution(Problem problem, string description, User creatUser, string firstComment = null)
+        public Solution(Problem problem, User creatUser)
         {
-            this.problem = problem;
-            this.description = description;
-            comments = new List<string>();
-            if (firstComment != null) comments.Add(firstComment);
+            this.problem = problem;            
+            this.description = description; 
             isActual = true;
             heat = 1;
             createdBy = creatUser;
             creatingDateTime = DateTime.Now;
-            this.problem.Solved(true, CentralManager.Instance.currentUser);         
+            this.problem.Solved(true, CentralManager.Instance.currentUser);
+            this.problem.solutions.Add(this);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Solution other = (Solution)obj;
+            return this.heat.CompareTo(other.heat);
+        }
+
+        public void IncreaseHeat()
+        {
+            heat++;
+        }        
+
+        private void Changed(User user)
+        {
+            lastChangingDateTime = DateTime.Now;
+            changedBy = user;
+        }
+
+        public void SetShortDescription(string text, User user)
+        {
+            shortDescription = text;
+            Changed(user);
+        }
+
+        public void SetDescription(string text, User user)
+        {
+            description = text;
+            Changed(user);
+        }
+
+        public void SetComment(string text, User user)
+        {
+            comment = text;
+            Changed(user);
+        }
+
+        public void SetActual(bool val, User user)
+        {
+            isActual = val;
+            Changed(user);
         }
     }
 
