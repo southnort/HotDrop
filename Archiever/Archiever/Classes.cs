@@ -27,25 +27,24 @@ namespace Archiever
 
 
     [Serializable]
-    public class Problem
+    public class Problem : IComparable
     {
-        public string name;
-        public Section section;
+        public string name { get; private set; }
+        public Section section { get; private set; }
         public User createdBy { get; private set; }
         public DateTime creatingDateTime { get; private set; }
         public User changedBy { get; private set; }
         public DateTime lastChangingDateTime { get; private set; }
-        public bool isActual;
-        public bool isSolved;
-        public float heat;
-        public string description;
+        public bool isActual { get; private set; }
+        public bool isSolved { get; private set; }
+        public float heat { get; private set; }
+        public string description { get; private set; }
         public List<Solution> solutions;
+        
 
-        public Problem(Section section, string name, string description,User createdUser)
-        {
-            this.name = name;
-            this.section = section;
-            this.description = description;
+        public Problem(Section section, User createdUser)
+        {            
+            this.section = section;           
 
             createdBy = createdUser;
             creatingDateTime = DateTime.Now;
@@ -55,21 +54,39 @@ namespace Archiever
             heat = 30f;
             solutions = new List<Solution>();
         }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Problem other = obj as Problem;
+            return this.heat.CompareTo(other.heat);
+        }
+
+        public void Solved(bool solved, User user)
+        {
+            isSolved = solved;
+            changedBy = user;
+            lastChangingDateTime = DateTime.Now;
+        }
+
+
     }
 
 
     [Serializable]
     public class Solution
     {
-        public Problem problem;
-        public string description;
+        public Problem problem { get; private set; }
+        public string shortDescription { get; private set; }
+        public string description { get; private set; }
         public User createdBy { get; private set; }
         public DateTime creatingDateTime { get; private set; }
         public User changedBy { get; private set; }
         public DateTime lastChangingDateTime { get; private set; }
         public List<string> comments;
-        public bool isActual;
-        public float heat;
+        public bool isActual { get; private set; }
+        public float heat { get; private set; }
 
         public Solution(Problem problem, string description, User creatUser, string firstComment = null)
         {
@@ -81,7 +98,7 @@ namespace Archiever
             heat = 1;
             createdBy = creatUser;
             creatingDateTime = DateTime.Now;
-            this.problem.isSolved = true;
+            this.problem.Solved(true, CentralManager.Instance.currentUser);         
         }
     }
 
@@ -161,7 +178,7 @@ namespace Archiever
             prompt.AcceptButton = confirmation;
 
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
-        }
+        }     
 
         public static Daily AddNewDailyDialog()
         {

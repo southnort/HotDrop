@@ -45,3 +45,16 @@ C:\Users\Ярик\Documents\Archiever\Archiever\Archiever\obj\Debug\Archiever.cs
 C:\Users\Ярик\Documents\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.CoreCompileInputs.cache
 C:\Users\Ярик\Documents\Archiever\Archiever\Archiever\obj\Debug\Archiever.exe
 C:\Users\Ярик\Documents\Archiever\Archiever\Archiever\obj\Debug\Archiever.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.exe.config
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.exe
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.Form1.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.NewCallForm.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.Properties.Resources.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.SolutionsForm.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.GenerateResource.Cache
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.CoreCompileInputs.cache
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.exe
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.ProblemForm.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csprojResolveAssemblyReference.cache

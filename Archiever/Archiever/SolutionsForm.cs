@@ -16,6 +16,7 @@ namespace Archiever
         private int defaultHeight = 80;
         private int spacingX = 5;
         private int spacingY = 5;
+        private Section currentSection;
 
         public SolutionsForm()
         {
@@ -39,17 +40,21 @@ namespace Archiever
             for (int i = 0; i < CentralManager.Instance.sections.Count; i++)
             {
                 Section section = CentralManager.Instance.sections[i];
-                Button button = CreateButton(section.name, new EventHandler(ClickSectionButton));
+                if (section.isActual)
+                {
+                    Button button = CreateButton(section.name, new EventHandler(ClickSectionButton));
+                    button.Name = i.ToString();
 
-                int width = i % 3 * (defaultWidth + spacingX);
-                int height = i / 3 * (defaultHeight + spacingY);
-                button.Location = new Point(width, height);
+                    int width = i % 3 * (defaultWidth + spacingX);
+                    int height = i / 3 * (defaultHeight + spacingY);
+                    button.Location = new Point(width, height);
+                }
             }
         }
 
-        private void ShowStickers(Problem[] problems)
+        private void ShowStickers(List<Problem> problems)
         {
-            for (int i = 0; i < problems.Length; i++)
+            for (int i = 0; i < problems.Count; i++)
             {
                 Button button = CreateButton(problems[i].name, new EventHandler(ClickOnProblem));
                 button.Name = i.ToString();
@@ -60,22 +65,45 @@ namespace Archiever
             }
         }
 
-        private void ShowStickers(Solution[] solutions)
+        private void ShowStickers(List<Solution> solutions)
         {
         }
 
         private void ClickOnProblem(object sender, EventArgs e)
         {
-            MessageBox.Show(((Button)sender).Name);
+                   
         }
-
-
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int numOfSection = ((ComboBox)sender).SelectedIndex;
+            SelectSection(numOfSection);
         }
 
+        private void SelectSection(int num)
+        {
+            Section section = CentralManager.Instance.sections[num];
+            comboBox1.Text = section.name;
+            button2.Enabled = true;
+
+            panel1.Controls.Clear();
+            ShowStickers(FindProblems(section.name));
+            currentSection = section;
+        }
+
+        private List<Problem> FindProblems(string sectionName)
+        {
+            List<Problem> list = new List<Problem>();
+            foreach (Problem problem in CentralManager.Instance.problems)
+            {
+                if (problem.section.name == sectionName)
+                    list.Add(problem);
+            }
+            list.Sort();
+            return list;
+        }
+        
+       
         private void button1_Click(object sender, EventArgs e)
         {
             string result = Prompt.ShowDialog("Новый тип", "Введите название нового раздела");
@@ -90,7 +118,9 @@ namespace Archiever
 
         private void ClickSectionButton(object sender, EventArgs e)
         {
-
+            Button b = (Button)sender;
+            int numOfSection = int.Parse(b.Name);
+            SelectSection(numOfSection);
         }        
 
         private Button CreateButton(string text, EventHandler clickMethod)
@@ -115,6 +145,12 @@ namespace Archiever
             {
                 this.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProblemForm form = new ProblemForm(new Problem(currentSection, CentralManager.Instance.currentUser));
+            form.Show();
         }
     }
 }

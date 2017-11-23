@@ -71,9 +71,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(376, 112);
+            this.button1.Location = new System.Drawing.Point(374, 220);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 85);
+            this.button1.Size = new System.Drawing.Size(89, 68);
             this.button1.TabIndex = 3;
             this.button1.Text = "ИКЗ";
             this.button1.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(527, 347);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
