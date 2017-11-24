@@ -60,3 +60,4 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Arc
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csprojResolveAssemblyReference.cache
 C:\Users\User\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.ProblemForm.resources
 C:\Users\User\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.OpenSolution.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.OpenSolution.resources

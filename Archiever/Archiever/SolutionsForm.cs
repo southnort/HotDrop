@@ -57,7 +57,7 @@ namespace Archiever
             for (int i = 0; i < problems.Count; i++)
             {
                 Button button = CreateButton(problems[i].name, new EventHandler(ClickOnProblem));
-                button.Name = i.ToString();
+                button.Name = problems[i].id;
 
                 int width = i % 3 * (defaultWidth + spacingX);
                 int height = i / 3 * (defaultHeight + spacingY);
@@ -71,35 +71,40 @@ namespace Archiever
 
         private void ClickOnProblem(object sender, EventArgs e)
         {
-            int numOfProblem = int.Parse(((Button)sender).Name);
-            Problem problem = currentSection.problems[numOfProblem];
-
+            string guid = (sender as Button).Name;
+            Problem problem = CentralManager.Instance.GetProblem(guid);
             ProblemForm form = new ProblemForm(problem);
             form.Show();
-        }       
+        }    
 
         private void SelectSection(int num)
         {
-            Section section = CentralManager.Instance.sections[num];
-            comboBox1.Text = section.name;
+            Section section = CentralManager.Instance.sections[num];           
             button2.Enabled = true;
 
             panel1.Controls.Clear();
-            ShowStickers(FindProblems(section.name));
             currentSection = section;
+            RefreshForm();
         }
 
-        private List<Problem> FindProblems(string sectionName)
+        private void RefreshForm()
+        {
+            List<Problem> prList = FindProblems(currentSection);
+            ShowStickers(prList);
+        }
+
+
+        private List<Problem> FindProblems(Section section)
         {
             List<Problem> list = new List<Problem>();
-            foreach (Problem problem in CentralManager.Instance.problems)
+            foreach (string guid in section.problemsIDs)
             {
-                if (problem.section.name == sectionName)
-                    list.Add(problem);
+                Problem pr = CentralManager.Instance.GetProblem(guid);              
+                list.Add(pr);
             }
-            list.Sort();
+
             return list;
-        }    
+        }
 
         private void ClickSectionButton(object sender, EventArgs e)
         {
@@ -155,7 +160,8 @@ namespace Archiever
         private void button2_Click(object sender, EventArgs e)
         {
             ProblemForm form = new ProblemForm(new Problem(currentSection, CentralManager.Instance.currentUser));
-            form.Show();
+            form.ShowDialog();
+            RefreshForm();
         }
     }
 }

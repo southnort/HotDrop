@@ -34,11 +34,17 @@ namespace Archiever
         
        
         private void button1_Click(object sender, EventArgs e)
-        {
-            solution.SetShortDescription(richTextBox4.Text, CentralManager.Instance.currentUser);
-            solution.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);
-            solution.SetComment(richTextBox3.Text, CentralManager.Instance.currentUser);
+        {            
+            solution.SetShortDescription(richTextBox4.Text, CentralManager.Instance.currentUser);            
+            solution.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);            
+            solution.SetComment(richTextBox3.Text, CentralManager.Instance.currentUser);            
             solution.SetActual(checkBox1.Checked, CentralManager.Instance.currentUser);
+
+            if (!CentralManager.Instance.solutions.Contains(solution))
+            {
+                solution.problem.solutionsIDs.Add(solution.id);
+                CentralManager.Instance.solutions.Add(solution);
+            }
 
             this.Close();
         }

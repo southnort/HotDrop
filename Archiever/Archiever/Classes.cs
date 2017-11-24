@@ -12,25 +12,27 @@ namespace Archiever
     public class Section
     {
         public string name { get; private set; }
-        public DateTime creationDate { get; private set; } 
+        public DateTime creationDate { get; private set; }
         public User createdBy { get; private set; }
-        public bool isActual;
-        public List<Problem> problems;
+        public bool isActual { get; private set; }
+        public List<string> problemsIDs;
 
-        public Section(string name,User createdBy)
+        public Section(string name, User createdBy)
         {
             this.name = name;
             this.createdBy = createdBy;
             creationDate = DateTime.Now;
             isActual = true;
-            problems = new List<Problem>();
-        }       
+            problemsIDs = new List<string>();
+        }
     }
 
 
     [Serializable]
     public class Problem : IComparable
     {
+        private Guid guid;
+        public string id { get { return guid.ToString(); } }
         public string name { get; private set; }
         public Section section { get; private set; }
         public User createdBy { get; private set; }
@@ -41,13 +43,14 @@ namespace Archiever
         public bool isSolved { get; private set; }
         public float heat { get; private set; }
         public string description { get; private set; }
-        public List<Solution> solutions;
+        public List<string> solutionsIDs;
         public string comments;
 
 
         public Problem(Section section, User createdUser)
         {
-            this.section = section;            
+            guid = Guid.NewGuid();
+            this.section = section;
 
             createdBy = createdUser;
             creatingDateTime = DateTime.Now;
@@ -57,9 +60,8 @@ namespace Archiever
             isActual = true;
             isSolved = false;
             heat = 30f;
-            solutions = new List<Solution>();
+            solutionsIDs = new List<string>();
             comments = string.Empty;
-            this.section.problems.Add(this);
         }
 
         public int CompareTo(object obj)
@@ -76,7 +78,7 @@ namespace Archiever
             changedBy = user;
             lastChangingDateTime = DateTime.Now;
         }
-       
+
 
         private void Changed(User user)
         {
@@ -99,7 +101,7 @@ namespace Archiever
         public void IncreaseHeat()
         {
             heat++;
-        }        
+        }
     }
 
 
@@ -115,18 +117,20 @@ namespace Archiever
         public DateTime lastChangingDateTime { get; private set; }
         public string comment { get; private set; }
         public bool isActual { get; private set; }
-        public float heat { get; private set; }        
+        public float heat { get; private set; }
+        public string id { get { return guid.ToString(); } }
+        private Guid guid;
 
         public Solution(Problem problem, User creatUser)
         {
-            this.problem = problem;            
-            this.description = description; 
+            guid = Guid.NewGuid();
+            this.problem = problem;
+            this.description = description;
             isActual = true;
             heat = 1;
             createdBy = creatUser;
             creatingDateTime = DateTime.Now;
-            this.problem.Solved(true, CentralManager.Instance.currentUser);
-            this.problem.solutions.Add(this);
+            this.problem.Solved(true, CentralManager.Instance.currentUser);            
         }
 
         public int CompareTo(object obj)
@@ -140,7 +144,7 @@ namespace Archiever
         public void IncreaseHeat()
         {
             heat++;
-        }        
+        }
 
         private void Changed(User user)
         {
@@ -200,7 +204,7 @@ namespace Archiever
         public Daily(string num, string message)
         {
             this.number = num;
-            this.isDone = false;           
+            this.isDone = false;
             this.text = message;
             this.startDate = DateTime.Now.ToString();
         }
@@ -217,7 +221,7 @@ namespace Archiever
 
 
         public string number { get; private set; }
-        public bool isDone { get; set; }       
+        public bool isDone { get; set; }
         public string text { get; private set; }
         public string startDate { get; private set; }
         public string endDate { get; private set; }
@@ -249,7 +253,7 @@ namespace Archiever
             prompt.AcceptButton = confirmation;
 
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
-        }     
+        }
 
         public static Daily AddNewDailyDialog()
         {
@@ -275,7 +279,7 @@ namespace Archiever
             prompt.Controls.Add(label2);
             prompt.AcceptButton = confirmation;
 
-            return prompt.ShowDialog() == DialogResult.OK ? CheckEntrie(textBox.Text, textBox2.Text) : null;        
+            return prompt.ShowDialog() == DialogResult.OK ? CheckEntrie(textBox.Text, textBox2.Text) : null;
         }
 
         private static Daily CheckEntrie(string num, string text)

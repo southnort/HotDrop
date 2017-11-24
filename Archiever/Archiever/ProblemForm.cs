@@ -12,7 +12,7 @@ namespace Archiever
 {
     public partial class ProblemForm : Form
     {
-        private Problem problem;      
+        private Problem currentProblem;
         private int defaultWidth = 190;
         private int defaultHeight = 80;
         private int spacingX = 5;
@@ -22,9 +22,9 @@ namespace Archiever
 
         public ProblemForm(Problem problem)
         {
-            this.problem = problem;          
-            
-            this.problem.IncreaseHeat();
+            currentProblem = problem;
+
+            currentProblem.IncreaseHeat();
             InitializeComponent();
             Start();
         }
@@ -49,58 +49,63 @@ namespace Archiever
 
         private void RefreshHeader()
         {
-            comboBox1.Text = problem.section.name;
-            if (CentralManager.Instance.problems.Contains(problem))
-                comboBox1.Enabled = false;
+            comboBox1.Text = currentProblem.section.name;
+            // if (CentralManager.Instance.problems.Contains(currentProblem))
+            comboBox1.Enabled = false;
 
-            checkBox1.Checked = problem.isSolved;
+            checkBox1.Checked = currentProblem.isSolved;
         }
 
         private void RefreshLabels()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("Создано: \n");
-            sb.Append(problem.creatingDateTime.ToString("dd.MM.yyyy"));
+            sb.Append(currentProblem.creatingDateTime.ToString("dd.MM.yyyy"));
             sb.Append("\n");
-            sb.Append(problem.createdBy.login);
+            sb.Append(currentProblem.createdBy.login);
             label3.Text = sb.ToString();
 
             sb = new StringBuilder();
             sb.Append("Изменено: \n");
-            sb.Append(problem.lastChangingDateTime.ToString("dd.MM.yyyy"));
+            sb.Append(currentProblem.lastChangingDateTime.ToString("dd.MM.yyyy"));
             sb.Append("\n");
-            sb.Append(problem.changedBy.login);
+            sb.Append(currentProblem.changedBy.login);
             label4.Text = sb.ToString();
         }
 
         private void RefreshDescription()
         {
-            richTextBox1.Text = problem.name;
-            richTextBox2.Text = problem.description;
-            richTextBox3.Text = problem.comments;
+            richTextBox1.Text = currentProblem.name;
+            richTextBox2.Text = currentProblem.description;
+            richTextBox3.Text = currentProblem.comments;
         }
 
         private void RefreshSolutions()
         {
-            problem.solutions.Sort();
-            for (int i = 0; i < problem.solutions.Count; i++)
+            if (CentralManager.Instance.problems.Contains(currentProblem))
             {
-                Button button = CreateButton(problem.solutions[i].shortDescription, ClickOnSolution);
-                button.Name = i.ToString();
+                panel1.Controls.Clear();
+                for (int i = 0; i < currentProblem.solutionsIDs.Count; i++)
+                {
+                    string solID = currentProblem.solutionsIDs[i];
+                    Button button = CreateButton(CentralManager.Instance.GetSolutions(solID).shortDescription,
+                        ClickOnSolution);
+                    button.Name = solID;
 
-                int width = i % 3 * (defaultWidth + spacingX);
-                int height = i / 3 * (defaultHeight + spacingY);
-                button.Location = new Point(width, height);
+                    int width = i % 3 * (defaultWidth + spacingX);
+                    int height = i / 3 * (defaultHeight + spacingY);
+                    button.Location = new Point(width, height);
+                }
             }
         }
 
         private void ClickOnSolution(object sender, EventArgs e)
         {
-            int numOfsolution = int.Parse(((Button)sender).Name);
-            Solution solution = problem.solutions[numOfsolution];
-
+            string name = (sender as Button).Name;
+            Solution solution = CentralManager.Instance.GetSolutions(name);
             OpenSolution form = new OpenSolution(solution);
-            form.Show();
+            form.ShowDialog();
+            RefreshSolutions();
         }
 
         private Button CreateButton(string text, EventHandler clickMethod)
@@ -121,10 +126,16 @@ namespace Archiever
 
         private void SaveProblem()
         {
-            problem.Solved(checkBox1.Checked, CentralManager.Instance.currentUser);
-            problem.SetName(richTextBox1.Text, CentralManager.Instance.currentUser);
-            problem.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);
-            problem.comments = richTextBox3.Text;
+            currentProblem.Solved(checkBox1.Checked, CentralManager.Instance.currentUser);
+            currentProblem.SetName(richTextBox1.Text, CentralManager.Instance.currentUser);
+            currentProblem.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);
+            currentProblem.comments = richTextBox3.Text;
+
+            if (!CentralManager.Instance.problems.Contains(currentProblem))
+            {
+                CentralManager.Instance.problems.Add(currentProblem);
+                currentProblem.section.problemsIDs.Add(currentProblem.id);
+            }
         }
 
 
@@ -134,7 +145,7 @@ namespace Archiever
 
 
 
-       
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -144,20 +155,15 @@ namespace Archiever
         {
             SaveProblem();
             this.Close();
-        }               
+        }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int numOfSection = ((ComboBox)sender).SelectedIndex;
-            Section section = CentralManager.Instance.sections[numOfSection];
-            problem = new Problem(section, CentralManager.Instance.currentUser);
-            RefreshForm();
-        }                       
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
             SaveProblem();
-            OpenSolution form = new OpenSolution(new Solution(this.problem, CentralManager.Instance.currentUser));
-        }        
+            OpenSolution form = new OpenSolution(new Solution(this.currentProblem, CentralManager.Instance.currentUser));
+            form.ShowDialog();
+            RefreshSolutions();
+        }
     }
 }

@@ -27,13 +27,19 @@ namespace Archiever
 
             if (keeper == null) keeper = new Keeper();
             if (currentUser == null) currentUser = new User("Admin", "admin");
+
+
+            //foreach (Problem pr in keeper.problems)
+            //{
+            //    pr.FindSolutions();
+            //}            
         }
            
 
         public void EndManager()
         {
             SaveSerializedOb(keeper, saveFilePath);
-            SaveSerializedOb(currentUser, userSaveFilePath);
+            SaveSerializedOb(currentUser, userSaveFilePath);        
         }
 
 
@@ -83,6 +89,26 @@ namespace Archiever
         public List<Problem> problems { get { return keeper.problems; } }
         public List<Solution> solutions { get { return keeper.solutions; } }
         public List<User> users { get { return keeper.users; } }
+
+        public Problem GetProblem(string id)
+        {
+            foreach (Problem pr in keeper.problems)
+            {
+                if (pr.id == id)
+                    return pr;
+            }
+            throw new Exception("Не найдена такая проблема!");
+        }
+
+        public Solution GetSolutions(string id)
+        {
+            foreach (Solution sol in keeper.solutions)
+            {
+                if (sol.id == id)
+                    return sol;
+            }
+            throw new Exception("Не найдено такое решение!");
+        }
     }
 
 

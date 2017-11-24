@@ -52,7 +52,7 @@
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(574, 80);
             this.richTextBox2.TabIndex = 0;
-            this.richTextBox2.Text = "";         
+            this.richTextBox2.Text = "";
             // 
             // label1
             // 
@@ -84,7 +84,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(353, 28);
             this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -137,7 +136,7 @@
             this.checkBox1.Size = new System.Drawing.Size(125, 18);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "Проблема решена";
-            this.checkBox1.UseVisualStyleBackColor = true;  
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -156,7 +155,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(566, 42);
             this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";           
+            this.richTextBox1.Text = "";
             // 
             // button2
             // 
@@ -185,7 +184,7 @@
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(574, 107);
             this.richTextBox3.TabIndex = 14;
-            this.richTextBox3.Text = "";  
+            this.richTextBox3.Text = "";
             // 
             // label6
             // 
