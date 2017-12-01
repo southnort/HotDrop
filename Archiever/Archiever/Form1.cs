@@ -12,12 +12,17 @@ namespace Archiever
 {
     public partial class Form1 : Form
     {
+        private int defaultWidth = 190;
+        private int defaultHeight = 80;
+        private int spacingX = 5;
+        private int spacingY = 5;
         private bool showReady = false;
 
         public Form1()
         {
             InitializeComponent();
             RefreshDataGrid();
+            RefreshSolutions();
         }
 
         private void RefreshDataGrid()
@@ -47,7 +52,6 @@ namespace Archiever
                 }
             }
         }
-
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,11 +88,12 @@ namespace Archiever
         {
             showReady = !showReady;
             RefreshDataGrid();
+            RefreshSolutions();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            DataGridView dg = (DataGridView)sender;           
+        {
+            DataGridView dg = (DataGridView)sender;
             int numOfVal = (int)dg.Rows[e.RowIndex].Cells[0].Value;
 
             Daily daily = CentralManager.Instance.currentUser.dailys[numOfVal];
@@ -97,8 +102,114 @@ namespace Archiever
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Приложение будет закрыто. Данные сохранятся");
-            CentralManager.Instance.EndManager();
+            DialogResult dr;
+            dr = MessageBox.Show("Действительно выйти?", "Выход", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("Приложение будет закрыто. Данные сохранятся");
+                CentralManager.Instance.EndManager();
+            }
+            else e.Cancel = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            RefreshProblems();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            RefreshSolutions();
+        }
+
+
+
+        private Button CreateButton(string text, EventHandler clickMethod)
+        {
+            Button button = new Button()
+            {
+                Text = text,
+                Size = new Size(defaultWidth, defaultHeight),
+                BackColor = Color.White,
+            };
+
+            button.Click += new EventHandler(clickMethod);
+            panel1.Controls.Add(button);
+            this.Controls.Add(panel1);
+
+            return button;
+        }
+
+        private void RefreshSolutions()
+        {
+            CentralManager.Instance.solutions.Sort();            
+            panel1.Controls.Clear();
+            int count = CentralManager.Instance.solutions.Count;
+            if (count > 21) count = 21;
+
+            for (int i = 0; i < count; i++)
+            {               
+                Solution solution = CentralManager.Instance.solutions[i];
+                Button button = CreateButton(solution.shortDescription,
+                    ClickOnSolution);
+
+                button.Name = solution.id;                
+
+                int width = i % 3 * (defaultWidth + spacingX);
+                int height = i / 3 * (defaultHeight + spacingY);
+                button.Location = new Point(width, height);
+            }
+        }
+
+        private void RefreshProblems()
+        {
+            CentralManager.Instance.problems.Sort();
+            panel1.Controls.Clear();
+            int count = CentralManager.Instance.problems.Count;
+            if (count > 21) count = 21;
+
+            List<Problem> problems = new List<Problem>();
+            for (int i = 0; i < count; i++)
+            {
+                Problem problem = CentralManager.Instance.problems[i];
+                if (!problem.isSolved)
+                {
+                    problems.Add(problem);
+                }
+            }
+            
+
+            for (int i = 0; i < problems.Count; i++)
+            {
+                Problem problem = problems[i];
+
+                Button button = CreateButton(problem.name, ClickOnProblem);
+                button.Name = problem.id;
+                int width = i % 3 * (defaultWidth + spacingX);
+                int height = i / 3 * (defaultHeight + spacingY);
+                button.Location = new Point(width, height);
+
+            }
+        }
+
+
+
+        private void ClickOnSolution(object sender, EventArgs e)
+        {
+            string name = (sender as Button).Name;
+            Solution solution = CentralManager.Instance.GetSolutions(name);
+            OpenSolution form = new OpenSolution(solution);
+            form.ShowDialog();
+            RefreshSolutions();
+        }
+
+        private void ClickOnProblem(object sender, EventArgs e)
+        {
+            string name = (sender as Button).Name;
+            Problem problem = CentralManager.Instance.GetProblem(name);
+            ProblemForm form = new ProblemForm(problem);
+            form.ShowDialog();
+            RefreshProblems();
         }
     }
 }

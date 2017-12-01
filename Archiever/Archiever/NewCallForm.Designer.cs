@@ -106,7 +106,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "NewCallForm";
-            this.Text = "Новая форма";
+            this.Text = "HotBlob - Новая форма";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.NewCallForm_KeyUp);
             this.ResumeLayout(false);
 

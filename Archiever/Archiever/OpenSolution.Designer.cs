@@ -68,7 +68,7 @@
             this.checkBox1.Size = new System.Drawing.Size(108, 38);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Актуальное \r\nрешение";
-            this.checkBox1.UseVisualStyleBackColor = true;          
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -86,7 +86,7 @@
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(652, 142);
             this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";      
+            this.richTextBox2.Text = "";
             // 
             // label3
             // 
@@ -104,7 +104,7 @@
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(652, 142);
             this.richTextBox3.TabIndex = 5;
-            this.richTextBox3.Text = "";  
+            this.richTextBox3.Text = "";
             // 
             // label4
             // 
@@ -122,23 +122,23 @@
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(652, 46);
             this.richTextBox4.TabIndex = 7;
-            this.richTextBox4.Text = "";   
+            this.richTextBox4.Text = "";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(304, 446);
+            this.button1.Location = new System.Drawing.Point(19, 369);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 68);
+            this.button1.Size = new System.Drawing.Size(154, 56);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Сохранить";
+            this.button1.Text = "Сохранить решение";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(526, 446);
+            this.button2.Location = new System.Drawing.Point(311, 446);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 68);
+            this.button2.Size = new System.Drawing.Size(392, 68);
             this.button2.TabIndex = 10;
             this.button2.Text = "Закрыть";
             this.button2.UseVisualStyleBackColor = true;
@@ -163,6 +163,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "OpenSolution";
+            this.Text = "HotBlob - Вариант решения";
             this.ResumeLayout(false);
             this.PerformLayout();
 

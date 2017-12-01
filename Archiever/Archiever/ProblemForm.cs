@@ -77,7 +77,20 @@ namespace Archiever
         {
             richTextBox1.Text = currentProblem.name;
             richTextBox2.Text = currentProblem.description;
-            richTextBox3.Text = currentProblem.comments;
+            richTextBox3.Text = CommentWithDate(currentProblem.comments);
+        }
+
+        private string CommentWithDate(string text)
+        {
+            if (text.Contains("<NextDate>"))
+            {
+                DateTime needDateTime = DateTime.Now.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime.AddDays(2);
+
+                text = text.Replace("<NextDate>", needDateTime.ToString("dd.MM.yyyy"));
+            }
+            return text;
         }
 
         private void RefreshSolutions()

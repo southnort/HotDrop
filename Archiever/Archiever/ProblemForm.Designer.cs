@@ -219,6 +219,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ProblemForm";
+            this.Text = "HotBlob - Проблема";
             this.ResumeLayout(false);
             this.PerformLayout();
 

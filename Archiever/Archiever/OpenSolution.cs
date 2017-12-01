@@ -17,6 +17,7 @@ namespace Archiever
         public OpenSolution(Solution solution)
         {
             this.solution = solution;
+            this.solution.IncreaseHeat();
             InitializeComponent();
             RefreshForm();
         }
@@ -27,12 +28,25 @@ namespace Archiever
                 solution.problem.description;
             richTextBox4.Text = solution.shortDescription;
             richTextBox2.Text = solution.description;
-            richTextBox3.Text = solution.comment;
+            richTextBox3.Text = CommentWithDate(solution.comment);
             checkBox1.Checked = solution.isActual;   
         }
-            
-        
-       
+
+        private string CommentWithDate(string text)
+        {
+            if (text == null) return null;
+            if (text.Contains("<NextDate>"))
+            {
+                DateTime needDateTime = DateTime.Now.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime.AddDays(2);
+
+                text = text.Replace("<NextDate>", needDateTime.ToString("dd.MM.yyyy"));
+            }
+            return text;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {            
             solution.SetShortDescription(richTextBox4.Text, CentralManager.Instance.currentUser);            

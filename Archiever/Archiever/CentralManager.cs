@@ -20,6 +20,27 @@ namespace Archiever
         private Keeper keeper;
         public User currentUser;
 
+        public List<string> listForSorting = new List<string>
+        {
+            "Общие вопросы",
+            "План закупок",
+            "План график",
+
+            "Заявка на закупку",
+            "Решения (Общие вопросы)",
+            "Решение Конкурс",
+
+            "Решение ЭТП",
+            "Решение Запрос Котировок",
+            "Решение Единственный поставщик",
+
+            "Договор",
+            "Контракт",
+            "Факт поставки",
+
+            "Сведения об исполнении",
+        };
+
         public void StartManager()
         {
             keeper = LoadSerializedOb<Keeper>(saveFilePath);
@@ -29,17 +50,17 @@ namespace Archiever
             if (currentUser == null) currentUser = new User("Admin", "admin");
 
 
-            //foreach (Problem pr in keeper.problems)
-            //{
-            //    pr.FindSolutions();
-            //}            
+            foreach (Solution sol in keeper.solutions)
+            {
+                sol.CoolDown();
+            }
         }
-           
+
 
         public void EndManager()
         {
             SaveSerializedOb(keeper, saveFilePath);
-            SaveSerializedOb(currentUser, userSaveFilePath);        
+            SaveSerializedOb(currentUser, userSaveFilePath);
         }
 
 
@@ -49,7 +70,7 @@ namespace Archiever
             if (File.Exists(filePath))
             {
                 try
-                {                   
+                {
                     using (FileStream fs = new FileStream(filePath, FileMode.Open))
                     {
                         BinaryFormatter bf = new BinaryFormatter();
@@ -63,8 +84,8 @@ namespace Archiever
                     return default(T);
                 }
             }
-            else 
-            {               
+            else
+            {
                 return default(T);
             }
         }
@@ -83,7 +104,7 @@ namespace Archiever
             {
                 MessageBox.Show(ex.ToString());
             }
-        }       
+        }
 
         public List<Section> sections { get { return keeper.sections; } }
         public List<Problem> problems { get { return keeper.problems; } }
@@ -97,7 +118,7 @@ namespace Archiever
                 if (pr.id == id)
                     return pr;
             }
-            throw new Exception("Не найдена такая проблема!");
+            throw new Exception("Не найдена такая проблема! " + id);
         }
 
         public Solution GetSolutions(string id)
@@ -107,7 +128,7 @@ namespace Archiever
                 if (sol.id == id)
                     return sol;
             }
-            throw new Exception("Не найдено такое решение!");
+            throw new Exception("Не найдено такое решение! " + id);
         }
     }
 

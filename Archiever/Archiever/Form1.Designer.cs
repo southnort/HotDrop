@@ -40,6 +40,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +57,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 68);
+            this.button2.Location = new System.Drawing.Point(12, 157);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 50);
+            this.button2.Size = new System.Drawing.Size(136, 40);
             this.button2.TabIndex = 1;
             this.button2.Text = "Искать решение";
             this.button2.UseVisualStyleBackColor = true;
@@ -138,17 +140,40 @@
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(162, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(654, 263);
             this.panel1.TabIndex = 5;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(12, 203);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 40);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Нерешенные проблемы";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 111);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(136, 40);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Обновить";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 471);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -158,7 +183,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = " ";
+            this.Text = " HotBlob - Главная";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -179,6 +204,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

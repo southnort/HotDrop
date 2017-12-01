@@ -33,6 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -89,12 +90,26 @@
             this.richTextBox1.Size = new System.Drawing.Size(290, 25);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "Поиск по тексту";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(736, 12);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(79, 17);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "Актуально";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // SolutionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 574);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
@@ -107,6 +122,7 @@
             this.Text = "Поиск решения";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SolutionsForm_KeyDown);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +133,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
