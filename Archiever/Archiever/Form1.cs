@@ -142,18 +142,33 @@ namespace Archiever
 
         private void RefreshSolutions()
         {
-            CentralManager.Instance.solutions.Sort();            
             panel1.Controls.Clear();
-            int count = CentralManager.Instance.solutions.Count;
+            List<Solution> tempArray = new List<Solution>();
+
+            for (int i = 0; i < CentralManager.Instance.solutions.Count; i++)
+            {
+                Solution solution = CentralManager.Instance.solutions[i];
+                if (solution.heat > 0)
+                    tempArray.Add(solution);
+                else
+                {
+                    TimeSpan span = DateTime.Now.Date - solution.lastChangingDateTime.Date;                   
+                    if (span.Days < 7)
+                        tempArray.Add(solution);
+                }
+            }
+
+            int count = tempArray.Count;
             if (count > 21) count = 21;
+            tempArray.Sort();
 
             for (int i = 0; i < count; i++)
-            {               
-                Solution solution = CentralManager.Instance.solutions[i];
+            {
+                Solution solution = tempArray[i];
                 Button button = CreateButton(solution.shortDescription,
                     ClickOnSolution);
 
-                button.Name = solution.id;                
+                button.Name = solution.id;
 
                 int width = i % 3 * (defaultWidth + spacingX);
                 int height = i / 3 * (defaultHeight + spacingY);
@@ -177,7 +192,7 @@ namespace Archiever
                     problems.Add(problem);
                 }
             }
-            
+
 
             for (int i = 0; i < problems.Count; i++)
             {

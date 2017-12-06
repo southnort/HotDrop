@@ -159,21 +159,21 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(201, 479);
+            this.button2.Location = new System.Drawing.Point(7, 435);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 38);
+            this.button2.Size = new System.Drawing.Size(119, 38);
             this.button2.TabIndex = 12;
-            this.button2.Text = "Сохранить";
+            this.button2.Text = "Сохранить изменения";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(381, 479);
+            this.button3.Location = new System.Drawing.Point(237, 479);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 38);
+            this.button3.Size = new System.Drawing.Size(307, 60);
             this.button3.TabIndex = 13;
-            this.button3.Text = "Закрыть";
+            this.button3.Text = "ОК";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 529);
+            this.ClientSize = new System.Drawing.Size(751, 551);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.button3);
