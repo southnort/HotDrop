@@ -16,8 +16,7 @@ namespace Archiever
         private int defaultWidth = 190;
         private int defaultHeight = 80;
         private int spacingX = 5;
-        private int spacingY = 5;
-
+        private int spacingY = 5;        
 
 
         public ProblemForm(Problem problem)
@@ -36,8 +35,18 @@ namespace Archiever
                 if (section.isActual)
                     comboBox1.Items.Add(section.name);
             }
+            CreateHTMLPanel(currentProblem.comments);
             RefreshForm();
         }
+
+        private void CreateHTMLPanel(string text)
+        {
+            TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel htmlPanel = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();            
+            htmlPanel.Text = text;
+            htmlPanel.Dock = DockStyle.Fill;
+            panel2.Controls.Add(htmlPanel);
+        }
+
 
         private void RefreshForm()
         {
@@ -77,7 +86,7 @@ namespace Archiever
         {
             richTextBox1.Text = currentProblem.name;
             richTextBox2.Text = currentProblem.description;
-            richTextBox3.Text = CommentWithDate(currentProblem.comments);
+            webBrowser1.DocumentText = CommentWithDate(currentProblem.comments);
         }
 
         private string CommentWithDate(string text)
@@ -141,8 +150,7 @@ namespace Archiever
         {
             currentProblem.Solved(checkBox1.Checked, CentralManager.Instance.currentUser);
             currentProblem.SetName(richTextBox1.Text, CentralManager.Instance.currentUser);
-            currentProblem.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);
-            currentProblem.comments = richTextBox3.Text;
+            currentProblem.SetDescription(richTextBox2.Text, CentralManager.Instance.currentUser);            
 
             if (!CentralManager.Instance.problems.Contains(currentProblem))
             {
@@ -151,6 +159,27 @@ namespace Archiever
             }
         }
 
+        private Form ChangeComment(Problem problem)
+        {
+            Form form = new Form()
+            {
+                Width = 400,
+                Height = 250,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                StartPosition = FormStartPosition.CenterScreen,
+                MaximizeBox = false,
+            };
+            RichTextBox textBox2 = new RichTextBox() { Left = 10, Top = 15, Width = 320, Height = 150, BorderStyle = BorderStyle.None };
+            textBox2.Text = problem.comments;
+            Button confirmation = new Button() { Text = "Ok", Left = 150, Width = 100, Top = 180, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { problem.comments = textBox2.Text; };
+            confirmation.Click += (sender, e) => { form.Close(); };
+            form.Controls.Add(textBox2);
+            form.Controls.Add(confirmation);
+            form.Controls.Add(label2);
+            form.AcceptButton = confirmation;
+            return form;
+        }
 
 
 
@@ -177,6 +206,14 @@ namespace Archiever
             OpenSolution form = new OpenSolution(new Solution(this.currentProblem, CentralManager.Instance.currentUser));
             form.ShowDialog();
             RefreshSolutions();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form form = ChangeComment(currentProblem);
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+                webBrowser1.DocumentText = currentProblem.comments;
         }
     }
 }

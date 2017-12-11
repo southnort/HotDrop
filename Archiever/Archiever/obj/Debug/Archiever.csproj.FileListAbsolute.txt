@@ -61,3 +61,7 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Arc
 C:\Users\User\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.ProblemForm.resources
 C:\Users\User\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.OpenSolution.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.OpenSolution.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.dll
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.WinForms.dll
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.WinForms.pdb

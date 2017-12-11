@@ -34,11 +34,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -98,14 +101,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Комментарий \r\nдля Контроля";
             // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(179, 283);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(652, 142);
-            this.richTextBox3.TabIndex = 5;
-            this.richTextBox3.Text = "";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -126,11 +121,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 369);
+            this.button1.Location = new System.Drawing.Point(19, 352);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 56);
+            this.button1.Size = new System.Drawing.Size(154, 41);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Сохранить изменения";
+            this.button1.Text = "Изменить комментарий";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -144,17 +139,45 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.webBrowser1);
+            this.panel1.Location = new System.Drawing.Point(179, 283);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(652, 157);
+            this.panel1.TabIndex = 11;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(19, 399);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(154, 41);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Сохранить изменения";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(652, 157);
+            this.webBrowser1.TabIndex = 0;
+            // 
             // OpenSolution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 526);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.checkBox1);
@@ -164,6 +187,7 @@
             this.MaximizeBox = false;
             this.Name = "OpenSolution";
             this.Text = "HotBlob - Вариант решения";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,10 +201,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

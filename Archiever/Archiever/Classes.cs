@@ -370,7 +370,7 @@ namespace Archiever
             prompt.AcceptButton = confirmation;
 
             return prompt.ShowDialog() == DialogResult.OK ? CheckEntrie(textBox.Text, textBox2.Text) : null;
-        }
+        }        
 
         private static Daily CheckEntrie(string num, string text)
         {

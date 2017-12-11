@@ -241,5 +241,10 @@ namespace Archiever
 
             ShowStickers(tempList);
         }
+
+        private void richTextBox1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+        }
     }
 }

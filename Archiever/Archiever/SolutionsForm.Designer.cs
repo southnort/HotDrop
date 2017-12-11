@@ -90,6 +90,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(290, 25);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "Поиск по тексту";
+            this.richTextBox1.Click += new System.EventHandler(this.richTextBox1_Click);
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // checkBox1

@@ -41,8 +41,11 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox2
@@ -177,15 +180,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // richTextBox3
-            // 
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Location = new System.Drawing.Point(132, 366);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(574, 107);
-            this.richTextBox3.TabIndex = 14;
-            this.richTextBox3.Text = "";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -196,13 +190,41 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Комментарии";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(7, 382);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(119, 47);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Редактировать комментарий";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.webBrowser1);
+            this.panel2.Location = new System.Drawing.Point(132, 366);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(574, 107);
+            this.panel2.TabIndex = 17;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(574, 107);
+            this.webBrowser1.TabIndex = 0;
+            // 
             // ProblemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 551);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
@@ -220,6 +242,7 @@
             this.MaximizeBox = false;
             this.Name = "ProblemForm";
             this.Text = "HotBlob - Проблема";
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,7 +262,9 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
