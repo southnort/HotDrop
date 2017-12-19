@@ -60,6 +60,7 @@ namespace Archiever
             RichTextBox textBox2 = new RichTextBox() { Left = 10, Top = 15, Width = 320, Height = 150, BorderStyle = BorderStyle.None };
             textBox2.Text = solution.comment;
             Button confirmation = new Button() { Text = "Ok", Left = 150, Width = 100, Top = 180, DialogResult = DialogResult.OK };
+            confirmation.Focused = false;
             confirmation.Click += (sender, e) => { solution.SetComment(textBox2.Text, CentralManager.Instance.currentUser); };
             confirmation.Click += (sender, e) => { form.Close(); };
             form.Controls.Add(textBox2);
