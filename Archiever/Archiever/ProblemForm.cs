@@ -94,8 +94,8 @@ namespace Archiever
             if (text.Contains("<NextDate>"))
             {
                 DateTime needDateTime = DateTime.Now.AddDays(1);
-                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime.AddDays(1);
-                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime.AddDays(2);
+                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime = needDateTime.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime = needDateTime.AddDays(2);
 
                 text = text.Replace("<NextDate>", needDateTime.ToString("dd.MM.yyyy"));
             }

@@ -241,11 +241,24 @@ namespace Archiever
 
         public bool ContainsString(string value)
         {
-            if (shortDescription.Contains(value)) return true;
-            if (description.Contains(value)) return true;
-            if (comment.Contains(value)) return true;
+            if (!isActual) return false;    
+            try
+            {
+                if (shortDescription.Contains(value)) return true;
+                if (description.Contains(value)) return true;
+                if (comment.Contains(value)) return true;
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка - \n" + shortDescription +
+                    "\n" + description +
+                    "\n" + comment +
+                    ex.ToString());
+                
+                return false;
+            }
         }
 
         public string ReturnType()

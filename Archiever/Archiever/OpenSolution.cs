@@ -31,15 +31,15 @@ namespace Archiever
             webBrowser1.DocumentText = CommentWithDate(solution.comment);
             checkBox1.Checked = solution.isActual;   
         }
-        
+
         private string CommentWithDate(string text)
         {
             if (text == null) return null;
             if (text.Contains("<NextDate>"))
             {
                 DateTime needDateTime = DateTime.Now.AddDays(1);
-                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime.AddDays(1);
-                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime.AddDays(2);
+                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime = needDateTime.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime = needDateTime.AddDays(2);
 
                 text = text.Replace("<NextDate>", needDateTime.ToString("dd.MM.yyyy"));
             }
@@ -60,7 +60,6 @@ namespace Archiever
             RichTextBox textBox2 = new RichTextBox() { Left = 10, Top = 15, Width = 320, Height = 150, BorderStyle = BorderStyle.None };
             textBox2.Text = solution.comment;
             Button confirmation = new Button() { Text = "Ok", Left = 150, Width = 100, Top = 180, DialogResult = DialogResult.OK };
-            confirmation.Focused = false;
             confirmation.Click += (sender, e) => { solution.SetComment(textBox2.Text, CentralManager.Instance.currentUser); };
             confirmation.Click += (sender, e) => { form.Close(); };
             form.Controls.Add(textBox2);

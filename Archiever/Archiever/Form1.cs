@@ -148,7 +148,7 @@ namespace Archiever
             for (int i = 0; i < CentralManager.Instance.solutions.Count; i++)
             {
                 Solution solution = CentralManager.Instance.solutions[i];
-                if (solution.heat > 0)
+                if (solution.heat > 0 && solution.isActual)
                     tempArray.Add(solution);
                 else
                 {
@@ -187,7 +187,7 @@ namespace Archiever
             for (int i = 0; i < count; i++)
             {
                 Problem problem = CentralManager.Instance.problems[i];
-                if (!problem.isSolved)
+                if (!problem.isSolved && problem.isActual)
                 {
                     problems.Add(problem);
                 }
