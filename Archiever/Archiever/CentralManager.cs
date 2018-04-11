@@ -28,7 +28,7 @@ namespace Archiever
 
         private List<string> _documentsNames;
 
-        public List<string> listForSorting
+        public List<string> documentsNames
         {
             get
             {
@@ -42,8 +42,7 @@ namespace Archiever
         {           
             WordReader reader = new WordReader();
             dataBase = reader.ReadWordFileToBase(dataBaseFilePath);
-
-            _documentsNames = new List<string>();
+          
             _documentsNames = dataBase.GetTags();
 
         }
@@ -138,6 +137,14 @@ namespace Archiever
             }
             throw new Exception("Не найдено такое решение! " + id);
         }
+
+
+        ///////////////////////////////////////
+        // новый код
+        ///////////////////////////////////////
+        
+
+
     }
 
 

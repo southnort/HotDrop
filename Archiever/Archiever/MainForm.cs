@@ -21,8 +21,10 @@ namespace Archiever
         public MainForm()
         {
             InitializeComponent();
-            RefreshDataGrid();
-            RefreshSolutions();
+            //  RefreshDataGrid();
+            //  RefreshSolutions();
+
+            CreateTabControl();
         }
 
         private void RefreshDataGrid()
@@ -134,15 +136,15 @@ namespace Archiever
             };
 
             button.Click += new EventHandler(clickMethod);
-            panel1.Controls.Add(button);
-            this.Controls.Add(panel1);
+            //panel1.Controls.Add(button);
+            //this.Controls.Add(panel1);
 
             return button;
         }
 
         private void RefreshSolutions()
         {
-            panel1.Controls.Clear();
+            //panel1.Controls.Clear();
             List<Solution> tempArray = new List<Solution>();
 
             //for (int i = 0; i < CentralManager.Instance.solutions.Count; i++)
@@ -226,5 +228,83 @@ namespace Archiever
             form.ShowDialog();
             RefreshProblems();
         }
+
+
+        /////////////////////////////////////////
+        //   Новый код
+        ////////////////////////////////////////
+
+        private void CreateTabControl()
+        {
+            tabControl1.Controls.Clear();            
+
+            foreach (var value in CentralManager.Instance.documentsNames)
+            {
+                TabPage page = new TabPage()
+                {
+                    Text = value,
+                    Name = value,
+                };     
+                tabControl1.TabPages.Add(page);
+                            
+                CreateButtons(value, page);
+            }
+        }
+
+        private void CreateButtons(string tag, TabPage page)
+        {
+            DataBase dataBase = CentralManager.Instance.dataBase;
+            List<string> IDs = dataBase.GetAllIDs(tag);
+            //  List<string> problems = new List<string>();
+
+            Panel panel = new Panel();
+            panel.Dock = DockStyle.Fill;
+            panel.AutoScroll = true;
+            panel.AutoScrollMargin = new Size(10, 10);
+            panel.AutoScrollMinSize = new Size(10, 10);
+            page.Controls.Add(panel);
+
+
+            for (int i = 0; i < IDs.Count; i++)
+            {
+                string id = IDs[i];
+                //  problems.Add(dataBase.GetTrouble(id));
+
+                Button button = CreateButton(id);
+                panel.Controls.Add(button);
+
+                int x = i % 3 * (defaultWidth + spacingX);
+                int y = i / 3 * (defaultHeight + spacingY);
+                button.Location = new Point(x, y);
+
+
+            }
+
+
+
+        }
+
+        private Button CreateButton(string id)
+        {
+            DataBase dataBase = CentralManager.Instance.dataBase;
+
+            Button button = new Button()
+            {
+                Name = id,
+                Text = dataBase.GetTrouble(id),
+                Size = new Size(defaultWidth, defaultHeight),
+                BackColor = Color.White,
+            };
+            // button.Click+= 
+            return button;
+
+        }
+
+
+
+        
+
+
+
     }
 }

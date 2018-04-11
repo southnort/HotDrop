@@ -75,20 +75,39 @@ public class DataBase
             string[] input = pair.Value.GetTags();
             for (int i = 0; i < input.Length; i++)
             {
-                string val = input[i];
-                if (!temp.Contains(val))
+                string val = input[i].Replace(" ", "");
+
+                if (!temp.Contains(val) && val != "Тип")
                     temp.Add(val);
-            }   
+            }
         }
 
+        temp.Sort();
+        
+        //StringBuilder sb = new StringBuilder();
+        //foreach (var str in temp)
+        //    sb.Append("#"+str + "#\n");
+
+        //MessageBox.Show(sb.ToString());
+        
         return temp;
     }
 
-    public List<string> AllIDs()
+    public List<string> GetAllIDs()
     {
         return elements.Keys.ToList();
     }
 
+    public List<string> GetAllIDs(string tag)
+    {
+        List<string> temp = new List<string>();
+        foreach (var pair in elements)
+        {
+            if (pair.Value.GetTags().Contains(tag))
+                temp.Add(pair.Key);
+        }
+        return temp;
+    }
 
     private class DataBaseElement
     {
