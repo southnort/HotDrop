@@ -48,7 +48,6 @@ C:\Users\Ярик\Documents\Archiever\Archiever\Archiever\obj\Debug\Archiever.pd
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.exe.config
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.exe
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.pdb
-C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.Form1.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.NewCallForm.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.Properties.Resources.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.SolutionsForm.resources
@@ -65,3 +64,7 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Htm
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.WinForms.dll
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.pdb
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlRenderer.WinForms.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.MainForm.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.CopyComplete

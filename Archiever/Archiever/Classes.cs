@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Archiever
 {
+
     [Serializable]
     public class Section
     {
@@ -241,7 +242,7 @@ namespace Archiever
 
         public bool ContainsString(string value)
         {
-            if (!isActual) return false;    
+            if (!isActual) return false;
             try
             {
                 if (shortDescription.Contains(value)) return true;
@@ -256,7 +257,7 @@ namespace Archiever
                     "\n" + description +
                     "\n" + comment +
                     ex.ToString());
-                
+
                 return false;
             }
         }
@@ -383,7 +384,7 @@ namespace Archiever
             prompt.AcceptButton = confirmation;
 
             return prompt.ShowDialog() == DialogResult.OK ? CheckEntrie(textBox.Text, textBox2.Text) : null;
-        }        
+        }
 
         private static Daily CheckEntrie(string num, string text)
         {
@@ -393,4 +394,7 @@ namespace Archiever
             else return new Daily(num, text);
         }
     }
+
 }
+
+

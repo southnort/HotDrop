@@ -17,7 +17,7 @@ namespace Archiever
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             CentralManager.Instance.StartManager();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

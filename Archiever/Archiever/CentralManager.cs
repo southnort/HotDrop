@@ -7,43 +7,51 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
+
 namespace Archiever
 {
     public class CentralManager
     {
-        private string saveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "ArchieverDataBase.bin";
-        private string userSaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "ArchieverUser.bin";
+        private string saveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
+            "ArchieverDataBase.bin";
+        private string userSaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
+            "ArchieverUser.bin";
 
+        private string dataBaseFilePath = @"D:\Файлы\ЛО шпаргалка.docx";
 
         private static CentralManager instance = new CentralManager();
         public static CentralManager Instance { get { return instance; } }
         private Keeper keeper;
         public User currentUser;
 
-        public List<string> listForSorting = new List<string>
+        public DataBase dataBase;
+
+        private List<string> _documentsNames;
+
+        public List<string> listForSorting
         {
-            "Общие вопросы",
-            "План закупок",
-            "План график",
+            get
+            {
+                if (_documentsNames == null)
+                    CreateDocumentsNames();
+                return _documentsNames;
+            }
+        }
 
-            "Заявка на закупку",
-            "Решения (Общие вопросы)",
-            "Решение Конкурс",
+        private void CreateDocumentsNames()
+        {           
+            WordReader reader = new WordReader();
+            dataBase = reader.ReadWordFileToBase(dataBaseFilePath);
 
-            "Решение ЭТП",
-            "Решение Запрос Котировок",
-            "Решение Единственный поставщик",
+            _documentsNames = new List<string>();
+            _documentsNames = dataBase.GetTags();
 
-            "Договор",
-            "Контракт",
-            "Факт поставки",
+        }
 
-            "Сведения об исполнении",
-        };
 
         public void StartManager()
         {
-            keeper = LoadSerializedOb<Keeper>(saveFilePath);
+         //   keeper = LoadSerializedOb<Keeper>(saveFilePath);
             currentUser = LoadSerializedOb<User>(userSaveFilePath);
 
             if (keeper == null) keeper = new Keeper();
@@ -59,7 +67,7 @@ namespace Archiever
 
         public void EndManager()
         {
-            SaveSerializedOb(keeper, saveFilePath);
+        //    SaveSerializedOb(keeper, saveFilePath);
             SaveSerializedOb(currentUser, userSaveFilePath);
         }
 
@@ -133,7 +141,7 @@ namespace Archiever
     }
 
 
-    [Serializable]
+
     public class Keeper
     {
         public List<User> users;
