@@ -50,12 +50,10 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Arc
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Archiever.pdb
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.NewCallForm.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.Properties.Resources.resources
-C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.SolutionsForm.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.GenerateResource.Cache
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.CoreCompileInputs.cache
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.exe
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.pdb
-C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.ProblemForm.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csprojResolveAssemblyReference.cache
 C:\Users\User\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.ProblemForm.resources
 C:\Users\User\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.OpenSolution.resources
@@ -68,3 +66,7 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\Doc
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.MainForm.resources
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.csproj.CopyComplete
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Debug\Archiever.ProblemForm.resources
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HtmlAgilityPack.xml

@@ -2,11 +2,10 @@
 using System.IO.Packaging;
 using System.IO;
 using System.Linq;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Wordprocessing;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using HtmlAgilityPack;
 
 
 
@@ -14,20 +13,19 @@ public class DataBase
 {
     private Dictionary<string, DataBaseElement> elements;
 
-    public DataBase(Table table)
+    public DataBase(HtmlNode table)
     {
         elements = new Dictionary<string, DataBaseElement>();
         InitializeDataBase(table);
     }
 
-    private void InitializeDataBase(Table table)
+    private void InitializeDataBase(HtmlNode table)
     {
-
-        var rows = table.Elements<TableRow>();
-        foreach (var row in rows)
+        foreach (HtmlNode row in table.SelectNodes("tr"))
         {
             DataBaseElement element = new DataBaseElement(row);
             elements.Add(element.number, element);
+
         }
 
 
@@ -118,24 +116,22 @@ public class DataBase
         public string comms { get; private set; }
 
 
-        public DataBaseElement(TableRow row)
+        public DataBaseElement(HtmlNode row)
         {
-            foreach (TableCell cell in row.Elements<TableCell>())
+            foreach (HtmlNode cell in row.SelectNodes("th|td"))
             {
                 if (number == null)
                     number = cell.InnerText;
                 else if (tags == null)
                     tags = cell.InnerText;
                 else if (troubleDescription == null)
-                    troubleDescription = cell.InnerXml;
+                    troubleDescription = cell.InnerText;
                 else if (solutionDescription == null)
-                    solutionDescription = cell.InnerXml;
+                    solutionDescription = cell.InnerHtml;
                 else if (comms == null)
-                    comms = cell.InnerXml;
+                    comms = cell.InnerHtml;
 
             }
-
-
         }
 
         public string[] GetTags()
@@ -170,13 +166,37 @@ public class WordReader
 
     public DataBase ReadWordFileToBase(string filePath)
     {
-        using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(filePath, false))
-        {
-            StringBuilder sb = new StringBuilder();
-            Table table = wordDocument.MainDocumentPart.Document.Body.Elements<Table>().First();
-            DataBase dataBase = new DataBase(table);
-            return dataBase;
-        }
+        HtmlDocument doc = new HtmlDocument();
+        doc.Load(filePath, Encoding.UTF8);
+        HtmlNode table = doc.DocumentNode.SelectNodes("//table")[0];
+
+        DataBase dataBase = new DataBase(table);
+        return dataBase;
+
+
+        //foreach (HtmlNode table in doc.DocumentNode.SelectNodes("//table"))
+        //{
+        //    foreach (HtmlNode row in table.SelectNodes("tr")
+        //    {
+        //        foreach (HtmlNode cell in row.SelectNodes("th|td"))
+        //        {
+
+        //        }
+
+        //    }
+
+        //}
+
+
+
+
+        //using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(filePath, false))
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    Table table = wordDocument.MainDocumentPart.Document.Body.Elements<Table>().First();
+        //    DataBase dataBase = new DataBase(table);
+        //    return dataBase;
+        //}
 
 
     }

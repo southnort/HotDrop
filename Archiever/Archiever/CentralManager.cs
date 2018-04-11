@@ -17,7 +17,7 @@ namespace Archiever
         private string userSaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
             "ArchieverUser.bin";
 
-        private string dataBaseFilePath = @"D:\Файлы\ЛО шпаргалка.docx";
+        private string dataBaseFilePath = @"D:\Файлы\ЛО шпаргалка.xhtml";
 
         private static CentralManager instance = new CentralManager();
         public static CentralManager Instance { get { return instance; } }

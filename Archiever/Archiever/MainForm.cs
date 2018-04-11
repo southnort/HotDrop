@@ -14,8 +14,8 @@ namespace Archiever
     {
         private int defaultWidth = 190;
         private int defaultHeight = 80;
-        private int spacingX = 5;
-        private int spacingY = 5;
+        private int spacingX = 10;
+        private int spacingY = 10;
         private bool showReady = false;
 
         public MainForm()
@@ -61,13 +61,7 @@ namespace Archiever
             NewCallForm tempForm = new NewCallForm();
             tempForm.Show();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SolutionsForm tempForm = new SolutionsForm();
-            tempForm.Show();
-        }
-
+       
         private void button3_Click(object sender, EventArgs e)
         {
             Daily dl = Prompt.AddNewDailyDialog();
@@ -219,15 +213,7 @@ namespace Archiever
             form.ShowDialog();
             RefreshSolutions();
         }
-
-        private void ClickOnProblem(object sender, EventArgs e)
-        {
-            string name = (sender as Button).Name;
-            Problem problem = CentralManager.Instance.GetProblem(name);
-            ProblemForm form = new ProblemForm(problem);
-            form.ShowDialog();
-            RefreshProblems();
-        }
+       
 
 
         /////////////////////////////////////////
@@ -255,8 +241,7 @@ namespace Archiever
         {
             DataBase dataBase = CentralManager.Instance.dataBase;
             List<string> IDs = dataBase.GetAllIDs(tag);
-            //  List<string> problems = new List<string>();
-
+            
             Panel panel = new Panel();
             panel.Dock = DockStyle.Fill;
             panel.AutoScroll = true;
@@ -267,8 +252,7 @@ namespace Archiever
 
             for (int i = 0; i < IDs.Count; i++)
             {
-                string id = IDs[i];
-                //  problems.Add(dataBase.GetTrouble(id));
+                string id = IDs[i];              
 
                 Button button = CreateButton(id);
                 panel.Controls.Add(button);
@@ -295,16 +279,28 @@ namespace Archiever
                 Size = new Size(defaultWidth, defaultHeight),
                 BackColor = Color.White,
             };
-            // button.Click+= 
+            button.Click += new EventHandler(ClickMethod);
             return button;
+
+
 
         }
 
+        private void ClickMethod(object sender, EventArgs e)
+        {
+            string id = (sender as Button).Name;
+            OpenProblem(id);
+        }       
 
+        private void OpenProblem(string problemID)
+        {
+            ProblemForm form = new ProblemForm(problemID);
+            form.Show();
+        }
 
-        
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
