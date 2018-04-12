@@ -26,15 +26,31 @@ namespace Archiever
 
         private void InitializeProblem()
         {
-            webBrowser1.DocumentText = dataBase.GetTrouble(problemID);
+            webBrowser1.DocumentText = CommentWithDate(dataBase.GetTrouble(problemID));
            // richTextBox1.Text = dataBase.GetTrouble(problemID);         
 
-            webBrowser2.DocumentText = dataBase.GetSolution(problemID);
+            webBrowser2.DocumentText = CommentWithDate(dataBase.GetSolution(problemID));
           //  richTextBox2.Text = dataBase.GetSolution(problemID);
 
-            webBrowser3.DocumentText = dataBase.GetComments(problemID);         
+            webBrowser3.DocumentText = CommentWithDate(dataBase.GetComments(problemID));         
           //  richTextBox3.Text = dataBase.GetComments(problemID);
         }
+
+        private string CommentWithDate(string text)
+        {
+            if (text == null) return null;
+            else if (text.Contains("#NextDate#"))
+            {
+                DateTime needDateTime = DateTime.Now.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Sunday) needDateTime = needDateTime.AddDays(1);
+                if (needDateTime.DayOfWeek == DayOfWeek.Saturday) needDateTime = needDateTime.AddDays(2);
+
+                return text.Replace("#NextDate#", needDateTime.ToString("dd.MM.yyyy"));
+            }
+
+            else return text;
+        }
+
 
 
 

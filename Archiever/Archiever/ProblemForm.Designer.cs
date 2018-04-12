@@ -49,15 +49,15 @@
             this.webBrowser1.Location = new System.Drawing.Point(12, 12);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(776, 134);
+            this.webBrowser1.Size = new System.Drawing.Size(391, 233);
             this.webBrowser1.TabIndex = 1;
             // 
             // webBrowser2
             // 
-            this.webBrowser2.Location = new System.Drawing.Point(12, 152);
+            this.webBrowser2.Location = new System.Drawing.Point(409, 12);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(776, 93);
+            this.webBrowser2.Size = new System.Drawing.Size(379, 356);
             this.webBrowser2.TabIndex = 2;
             // 
             // webBrowser3
@@ -65,7 +65,7 @@
             this.webBrowser3.Location = new System.Drawing.Point(12, 251);
             this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser3.Name = "webBrowser3";
-            this.webBrowser3.Size = new System.Drawing.Size(776, 117);
+            this.webBrowser3.Size = new System.Drawing.Size(391, 117);
             this.webBrowser3.TabIndex = 7;
             // 
             // ProblemForm

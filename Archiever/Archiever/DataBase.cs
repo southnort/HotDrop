@@ -96,13 +96,24 @@ public class DataBase
         return elements.Keys.ToList();
     }
 
-    public List<string> GetAllIDs(string tag)
+    public List<string> GetAllIDs(string tag, string text)
     {
         List<string> temp = new List<string>();
         foreach (var pair in elements)
         {
             if (pair.Value.GetTags().Contains(tag))
-                temp.Add(pair.Key);
+            {
+                DataBaseElement el = pair.Value;
+
+                if (
+                    el.troubleDescription.Contains(text) ||
+                    el.solutionDescription.Contains(text) ||
+                    el.comms.Contains(text) ||
+                    el.number.Contains(text)                    
+                   )
+
+                    temp.Add(pair.Key);
+            }
         }
         return temp;
     }

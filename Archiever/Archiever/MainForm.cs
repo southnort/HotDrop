@@ -23,6 +23,7 @@ namespace Archiever
             InitializeComponent();
             //  RefreshDataGrid();
             //  RefreshSolutions();
+            Text = "HotBlob                  ver. 0.9.5";
 
             CreateTabControl();
         }
@@ -240,7 +241,7 @@ namespace Archiever
         private void CreateButtons(string tag, TabPage page)
         {
             DataBase dataBase = CentralManager.Instance.dataBase;
-            List<string> IDs = dataBase.GetAllIDs(tag);
+            List<string> IDs = dataBase.GetAllIDs(tag, richTextBox1.Text);
             
             Panel panel = new Panel();
             panel.Dock = DockStyle.Fill;
@@ -300,7 +301,13 @@ namespace Archiever
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+            CreateTabControl();
+            richTextBox1.Focus();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
         }
     }
 }
