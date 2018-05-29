@@ -96,20 +96,23 @@ public class DataBase
         return elements.Keys.ToList();
     }
 
-    public List<string> GetAllIDs(string tag, string text)
+    public List<string> GetAllIDs(string tag, string innerText)
     {
+        string text = innerText.ToLower();
         List<string> temp = new List<string>();
         foreach (var pair in elements)
         {
-            if (pair.Value.GetTags().Contains(tag))
-            {
+            if (pair.Value.ContainsTag(tag))
+            { 
+             //   System.Windows.Forms.MessageBox.Show(tag + " || " + text+" || "+pair.Value.tags);
+
                 DataBaseElement el = pair.Value;
 
                 if (
-                    el.troubleDescription.Contains(text) ||
-                    el.solutionDescription.Contains(text) ||
-                    el.comms.Contains(text) ||
-                    el.number.Contains(text)                    
+                    el.troubleDescription.ToLower().Contains(text) ||
+                    el.solutionDescription.ToLower().Contains(text) ||
+                    el.comms.ToLower().Contains(text) ||
+                    el.number.ToLower().Contains(text)                    
                    )
 
                     temp.Add(pair.Key);
@@ -133,8 +136,8 @@ public class DataBase
             {
                 if (number == null)
                     number = cell.InnerText;
-                else if (tags == null)
-                    tags = cell.InnerText;
+                else if (tags == null)                
+                    tags = cell.InnerText;   
                 else if (troubleDescription == null)
                     troubleDescription = cell.InnerText;
                 else if (solutionDescription == null)
@@ -151,6 +154,12 @@ public class DataBase
             string[] result = str.Split(',');
             return result;
         }
+
+        public bool ContainsTag(string tag)
+        {
+            return tags.Contains(tag);
+        }
+
 
 
         public override string ToString()
@@ -169,7 +178,6 @@ public class DataBase
 
 
 }
-
 
 
 public class WordReader

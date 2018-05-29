@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProblemForm));
             this.button1 = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
@@ -77,6 +78,7 @@
             this.Controls.Add(this.webBrowser2);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProblemForm";
             this.Text = "Подробнее";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ProblemForm_KeyUp);

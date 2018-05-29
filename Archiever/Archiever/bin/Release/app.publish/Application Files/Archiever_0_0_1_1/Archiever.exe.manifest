@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Archiever.exe" version="0.0.1.1" publicKeyToken="2c03a4e7ead8fabc" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Untitled-1.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Archiever" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Archiever.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Archiever.exe" size="108968">
+      <assemblyIdentity name="Archiever" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>DKvK9jj3E+CgGGHZ3BabK4A/qsKPjPdz9lLQHsjNT9M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DocumentFormat.OpenXml.dll" size="5812328">
+      <assemblyIdentity name="DocumentFormat.OpenXml" version="2.5.5631.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>QPKTp3KzAXgUVXv7b/0Ad8e4HcT9wcqnSY22TDjcwl8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="125952">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.7.4.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JDjFgv3T95jlqzO04vBD6nvb83BmovuoBT2BDjFbuOk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlRenderer.dll" size="221696">
+      <assemblyIdentity name="HtmlRenderer" version="1.5.0.5" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>24PfjnyHf/sJFsFMmtbTH9TCfKqM9w/ueA9v7hWoFkA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlRenderer.WinForms.dll" size="60416">
+      <assemblyIdentity name="HtmlRenderer.WinForms" version="1.5.0.6" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WF/zxFwKgeKM8FANZnlU0EY/IhL18w1Px1iKE75KJWM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Archiever.exe.config" size="184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FqWy0dfMmRS85zkU1NlW07p6LsNOPUHodvLiZcFdgJY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Untitled-1.ico" size="16958">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fZ+XIpu6Inblxl4CpNueBmFATK1XIb9Bq74YLYApjE8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=home-pc\Ярик" issuerKeyHash="7171eb9d51ec471fc32e6552617b088c59696375" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>gJIVrd4tgPf8JVbUdu29pVS6URaWV5Fyc8wdzBJZmkA=</DigestValue></Reference></SignedInfo><SignatureValue>OSH/IrLx23y+EWsaY9lj0o2XQD1y3ahu1fk5rhEQfHk+r73nSJ0qt2SGStaBZC5G+/p8M6Uj09fq9nGlCuoMYuQqw2ZMbooXJCMYxNJbepz2y/OMqwbo52RITy00dVjmtdmDkiRz4uLKvaJWZCNxFDmq/WFjnLStUZu2DKQJj8s=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>wxiEA6mFMq04fO1lMirIy4NOYAXw+Te13WWjV4RfTf0+0zIaQtSkATWTB0GZlCmLh494Xj63gMmv4lSGevXc+rT+Qmbtaj19EtX1HMQGgkHAfM8fM8P28gLMV6W5OpNYdtBD2UPMsiHdDt+JCN9pSCDuhdKqHZqWIzf8nSJTpuc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="409a5912cc1dcc73729157961651ba54a5bded76d45625fcf7802ddead159280" Description="" Url=""><as:assemblyIdentity name="Archiever.exe" version="0.0.1.1" publicKeyToken="2c03a4e7ead8fabc" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=home-pc\Ярик</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Ll+M9vtIS1g+iJtmYaP4sAG0wH8nFyO/QLZHs2Vcgsk=</DigestValue></Reference></SignedInfo><SignatureValue>qE9TShLTNyl25pHxLvbAEcXHm790u0ex4PcPd4Lm2MEGNUcY9bEly+mdPFEjbx9TlqdpOfmXZJ767YvY4tfI+uEP3oO5afOVFdoe30Oyxo4lhGwDNEMAAr9nWpGtWpAur/iEPf5dB8swmQYj4HMIl6DQvFBGdMi8hOc3+O3/FDA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>wxiEA6mFMq04fO1lMirIy4NOYAXw+Te13WWjV4RfTf0+0zIaQtSkATWTB0GZlCmLh494Xj63gMmv4lSGevXc+rT+Qmbtaj19EtX1HMQGgkHAfM8fM8P28gLMV6W5OpNYdtBD2UPMsiHdDt+JCN9pSCDuhdKqHZqWIzf8nSJTpuc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQJ6KSs7cRWY5MYgfQUWMYxjANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAaABvAG0AZQAtAHAAYwBcBC8EQAQ4BDowHhcNMTgwNTI5MDgzMDE4WhcNMTkwNTI5MTQzMDE4WjAjMSEwHwYDVQQDHhgAaABvAG0AZQAtAHAAYwBcBC8EQAQ4BDowgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMMYhAOphTKtOHztZTIqyMuDTmAF8Pk3td1lo1eEX039PtMyGkLUpAE1kwdBmZQpi4ePeF4+t4DJr+JUhnr13Pq0/kJm7Wo9fRLV9RzEBoJBwHzPHzPD9vICzFeluTqTWHbQQ9lDzLIh3Q7fiQjfaUgg7oXSqh2aliM3/J0iU6bnAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAYVgl0l4zPQd46VQdZBYq6Lqj286tUnZR+44ZTKKSyANs+uMmvMoyxrqJkjFk4y6RTdWzex7f2UuqbAo5A3/ArEB19tiujRIfstbCxNzrFu5qzM84rdbCznYMUFPBYIKf2Tk5fVjowENyznP0uimY/4oM0x58P0zbgQ69fab0T4Y=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

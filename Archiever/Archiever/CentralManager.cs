@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Net;
 
 
 namespace Archiever
@@ -17,7 +18,13 @@ namespace Archiever
         private string userSaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
             "ArchieverUser.bin";
 
-        private string dataBaseFilePath = @"D:\Файлы\ЛО шпаргалка.xhtml";
+        private string dataBaseFilePath = //@"D:\Файлы\ЛО шпаргалка.xhtml";
+            @"ЛО шпаргалка.xhtml";
+
+        private string serviceURL = @"https://getfile.dokpub.com/yandex/get/";
+        private string dataBaseFileOnYandex = @"https://yadi.sk/d/jnAgqRVZ3ULupT";
+
+        private string dataBaseFileURL { get { return serviceURL + dataBaseFileOnYandex; } }
 
         private static CentralManager instance = new CentralManager();
         public static CentralManager Instance { get { return instance; } }
@@ -50,7 +57,9 @@ namespace Archiever
 
         public void StartManager()
         {
-         //   keeper = LoadSerializedOb<Keeper>(saveFilePath);
+            //   keeper = LoadSerializedOb<Keeper>(saveFilePath);
+            ReloadFile();
+
             currentUser = LoadSerializedOb<User>(userSaveFilePath);
 
             if (keeper == null) keeper = new Keeper();
@@ -142,8 +151,38 @@ namespace Archiever
         ///////////////////////////////////////
         // новый код
         ///////////////////////////////////////
-        
 
+        private void ReloadFile()
+        {
+
+
+            if (File.Exists(dataBaseFilePath))
+            {
+                if (File.Exists(dataBaseFilePath + "_tmp"))
+                    File.Delete(dataBaseFilePath + "_tmp");
+
+                File.Move(dataBaseFilePath, dataBaseFilePath + "_tmp");
+            }
+
+
+            try
+            {
+                WebClient webClient = new WebClient();
+                webClient.DownloadFile(new Uri(dataBaseFileURL), dataBaseFilePath);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                if (File.Exists(dataBaseFilePath + "_tmp"))
+                    File.Move(dataBaseFilePath + "_tmp", dataBaseFilePath);
+            }
+
+           
+
+
+
+        }
 
     }
 

@@ -18,14 +18,17 @@ namespace Archiever
         private int spacingY = 10;
         private bool showReady = false;
 
+        private int indexOfCurrentWindow = 0;
+
         public MainForm()
         {
             InitializeComponent();
             //  RefreshDataGrid();
             //  RefreshSolutions();
-            Text = "HotBlob                  ver. 0.9.5";
+            Text = "HotBlob                  ver. 0.9.9";
 
             CreateTabControl();
+          
         }
 
         private void RefreshDataGrid()
@@ -301,8 +304,11 @@ namespace Archiever
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+            indexOfCurrentWindow = tabControl1.SelectedIndex;
             CreateTabControl();
+            tabControl1.SelectedIndex = indexOfCurrentWindow;
             richTextBox1.Focus();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
