@@ -17,7 +17,6 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\A
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\Archiever.csproj.GenerateResource.cache
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\Archiever.csproj.CoreCompileInputs.cache
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\Archiever.csproj.CopyComplete
-C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\Archiever.csprojAssemblyReference.cache
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Release\Archiever.exe.manifest
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Release\Archiever.application
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\bin\Debug\HotBlob.exe.config
@@ -39,3 +38,4 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\H
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\HotBlob.application
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\HotBlob.exe
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\HotBlob.pdb
+C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\Archiever.csprojAssemblyReference.cache

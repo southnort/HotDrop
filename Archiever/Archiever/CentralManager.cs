@@ -19,7 +19,7 @@ namespace Archiever
             "ArchieverUser.bin";
 
         private string dataBaseFilePath = //@"D:\Файлы\ЛО шпаргалка.xhtml";
-            @"ЛО шпаргалка.xhtml";
+            @"loadable file.xhtml";
 
         private string serviceURL = @"https://getfile.dokpub.com/yandex/get/";
         private string dataBaseFileOnYandex = @"https://yadi.sk/d/jnAgqRVZ3ULupT";
