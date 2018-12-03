@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Untitled-1.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="HotBlob" version="0.9.9.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="HotBlob" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="HotBlob.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HotBlob.exe" size="108968">
-      <assemblyIdentity name="HotBlob" version="0.9.9.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HotBlob.exe" size="109480">
+      <assemblyIdentity name="HotBlob" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O5Tcxk6MzGy9OOuBEIwATLTJ6ZjqDOtaDDjHEv+z1fU=</dsig:DigestValue>
+        <dsig:DigestValue>5jWPjgkY49tKezHrrLASvcy3WEluawnsjJUrIJwIijw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

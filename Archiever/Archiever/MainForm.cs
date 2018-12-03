@@ -16,47 +16,70 @@ namespace Archiever
         private int defaultHeight = 80;
         private int spacingX = 10;
         private int spacingY = 10;
-        private bool showReady = false;
+        private bool showAllDaily = true;       //если false - в таблице отображаются только выполненные задания. 
+                                                //Если true - то все
 
         private int indexOfCurrentWindow = 0;
 
         public MainForm()
         {
             InitializeComponent();
-            //  RefreshDataGrid();
-            //  RefreshSolutions();
-            Text = "HotBlob                  ver. 0.9.9";
+            RefreshDataGrid();
+            RefreshSolutions();
+            Text = "HotBlob                  ver. " + Application.ProductVersion;
 
             CreateTabControl();
           
         }
 
+        private void CreateTable()
+        {
+
+
+        }
+
+
         private void RefreshDataGrid()
         {
             User user = CentralManager.Instance.currentUser;
             dataGridView1.Rows.Clear();
-            foreach (Daily dl in user.dailys)
+            foreach (var dl in user.dailys)
             {
-                if (dl.endDate == null || showReady)
+                if (showAllDaily)
                 {
-                    try
-                    {
-                        int rowNumber = dataGridView1.Rows.Add();
-
-                        dataGridView1.Rows[rowNumber].Cells[0].Value = user.dailys.IndexOf(dl);
-                        dataGridView1.Rows[rowNumber].Cells[1].Value = dl.startDate.ToString();
-                        dataGridView1.Rows[rowNumber].Cells[2].Value = (dl.endDate != null);
-                        dataGridView1.Rows[rowNumber].Cells[3].Value = dl.number;
-                        dataGridView1.Rows[rowNumber].Cells[4].Value = dl.text;
-                        dataGridView1.Rows[rowNumber].Cells[5].Value = dl.endDate != null ? dl.endDate.ToString() : string.Empty;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
+                    AddDailyToDataGridView(dl);
 
                 }
+                else
+                {
+                    if (!dl.isDone)
+                        AddDailyToDataGridView(dl);
+                }
+             
             }
+
+        }
+
+        private void AddDailyToDataGridView(Daily dl)
+        {
+            User user = CentralManager.Instance.currentUser;
+            try
+            {
+                int rowNumber = dataGridView1.Rows.Add();
+
+                dataGridView1.Rows[rowNumber].Cells[0].Value = user.dailys.IndexOf(dl);
+                dataGridView1.Rows[rowNumber].Cells[1].Value = dl.startDate.ToString();
+                dataGridView1.Rows[rowNumber].Cells[2].Value = dl.isDone;
+                dataGridView1.Rows[rowNumber].Cells[3].Value = dl.number;
+                dataGridView1.Rows[rowNumber].Cells[4].Value = dl.text;
+                dataGridView1.Rows[rowNumber].Cells[5].Value = dl.endDate != null ? dl.endDate.ToString() : string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
 
@@ -86,18 +109,24 @@ namespace Archiever
 
         private void button4_Click(object sender, EventArgs e)
         {
-            showReady = !showReady;
+            showAllDaily = !showAllDaily;
             RefreshDataGrid();
             RefreshSolutions();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dg = (DataGridView)sender;
-            int numOfVal = (int)dg.Rows[e.RowIndex].Cells[0].Value;
+            if (e.RowIndex > 0)
+            {
+                var row = ((DataGridView)sender).CurrentRow;
 
-            Daily daily = CentralManager.Instance.currentUser.dailys[numOfVal];
-            daily.End(!daily.isDone);
+                User user = CentralManager.Instance.currentUser;
+                int index = (int)row.Cells[0].Value;
+                Daily daily = user.dailys[index];
+
+                daily.End(!(bool)row.Cells["Column3"].Value);
+            }
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -105,8 +134,7 @@ namespace Archiever
             DialogResult dr;
             dr = MessageBox.Show("Действительно выйти?", "Выход", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dr == DialogResult.OK)
-            {
-                MessageBox.Show("Приложение будет закрыто. Данные сохранятся");
+            {               
                 CentralManager.Instance.EndManager();
             }
             else e.Cancel = true;
@@ -225,7 +253,7 @@ namespace Archiever
         ////////////////////////////////////////
 
         private void CreateTabControl()
-        {
+        {            
             tabControl1.Controls.Clear();            
 
             foreach (var value in CentralManager.Instance.documentsNames)
@@ -239,6 +267,7 @@ namespace Archiever
                             
                 CreateButtons(value, page);
             }
+            
         }
 
         private void CreateButtons(string tag, TabPage page)

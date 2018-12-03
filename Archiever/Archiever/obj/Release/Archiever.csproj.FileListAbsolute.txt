@@ -38,4 +38,3 @@ C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\H
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\HotBlob.application
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\HotBlob.exe
 C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\HotBlob.pdb
-C:\Users\Ярик\Documents\Projects\Archiever\Archiever\Archiever\obj\Release\Archiever.csprojAssemblyReference.cache

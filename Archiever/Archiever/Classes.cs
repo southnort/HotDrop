@@ -307,25 +307,25 @@ namespace Archiever
     {
         public Daily(string num, string message)
         {
-            this.number = num;
-            this.isDone = false;
-            this.text = message;
-            this.startDate = DateTime.Now.ToString();
+            number = num;
+            isDone = false;
+            text = message;
+            startDate = DateTime.Now.ToString();
         }
 
         public void End(bool val)
         {
-            this.isDone = val;
+            isDone = val;
             if (val)
-                this.endDate = DateTime.Now.ToString();
+                endDate = DateTime.Now.ToString();
             else
-                this.endDate = null;
+                endDate = null;
         }
 
 
 
         public string number { get; private set; }
-        public bool isDone { get; set; }
+        public bool isDone { get; private set; }
         public string text { get; private set; }
         public string startDate { get; private set; }
         public string endDate { get; private set; }
