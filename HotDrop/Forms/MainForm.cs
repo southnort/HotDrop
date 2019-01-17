@@ -67,5 +67,23 @@ namespace HotDrop
             HistoryForm form = new HistoryForm();
             form.Show();
         }
+
+        private void ikzButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string text = ikz.Text;
+                text = text.Insert(33, " ");
+                text = text.Insert(29, " ");
+                text = text.Insert(26, " ");
+                text = text.Insert(22, " ");
+                text = text.Insert(2, " ");
+                ikz.Text = text;
+            }
+            catch
+            {
+                ikz.Text += "  Error";
+            }
+        }
     }
 }

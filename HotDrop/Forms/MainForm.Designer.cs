@@ -39,18 +39,24 @@
             this.requestDescriptionCopy = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.control = new System.Windows.Forms.CheckBox();
-            this.countOfInn = new System.Windows.Forms.Label();
             this.historyButton = new System.Windows.Forms.Button();
             this.trackingButton = new System.Windows.Forms.Button();
             this.archiveButton = new System.Windows.Forms.Button();
+            this.countOfInn = new System.Windows.Forms.Label();
+            this.ikz = new System.Windows.Forms.RichTextBox();
+            this.ikzButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // inn
             // 
             this.inn.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.inn.Location = new System.Drawing.Point(12, 12);
+            this.inn.Location = new System.Drawing.Point(53, 12);
             this.inn.Name = "inn";
-            this.inn.Size = new System.Drawing.Size(284, 42);
+            this.inn.Size = new System.Drawing.Size(297, 34);
             this.inn.TabIndex = 0;
             this.inn.Text = "";
             this.inn.TextChanged += new System.EventHandler(this.inn_TextChanged);
@@ -58,18 +64,18 @@
             // clientName
             // 
             this.clientName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clientName.Location = new System.Drawing.Point(12, 60);
+            this.clientName.Location = new System.Drawing.Point(53, 52);
             this.clientName.Name = "clientName";
-            this.clientName.Size = new System.Drawing.Size(284, 42);
+            this.clientName.Size = new System.Drawing.Size(297, 50);
             this.clientName.TabIndex = 1;
             this.clientName.Text = "";
             // 
             // phoneNumber
             // 
             this.phoneNumber.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.phoneNumber.Location = new System.Drawing.Point(12, 108);
+            this.phoneNumber.Location = new System.Drawing.Point(53, 108);
             this.phoneNumber.Name = "phoneNumber";
-            this.phoneNumber.Size = new System.Drawing.Size(284, 42);
+            this.phoneNumber.Size = new System.Drawing.Size(297, 42);
             this.phoneNumber.TabIndex = 2;
             this.phoneNumber.Text = "";
             // 
@@ -78,39 +84,36 @@
             this.requestDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.requestDescription.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.requestDescription.Location = new System.Drawing.Point(12, 156);
+            this.requestDescription.Location = new System.Drawing.Point(53, 156);
             this.requestDescription.Name = "requestDescription";
-            this.requestDescription.Size = new System.Drawing.Size(284, 198);
+            this.requestDescription.Size = new System.Drawing.Size(297, 193);
             this.requestDescription.TabIndex = 3;
             this.requestDescription.Text = "";
             // 
             // innCopy
             // 
-            this.innCopy.Location = new System.Drawing.Point(302, 12);
+            this.innCopy.Location = new System.Drawing.Point(6, 12);
             this.innCopy.Name = "innCopy";
-            this.innCopy.Size = new System.Drawing.Size(48, 42);
+            this.innCopy.Size = new System.Drawing.Size(41, 34);
             this.innCopy.TabIndex = 6;
-            this.innCopy.Text = "copy";
             this.innCopy.UseVisualStyleBackColor = true;
             this.innCopy.Click += new System.EventHandler(this.innCopy_Click);
             // 
             // clientNameCopy
             // 
-            this.clientNameCopy.Location = new System.Drawing.Point(302, 60);
+            this.clientNameCopy.Location = new System.Drawing.Point(6, 52);
             this.clientNameCopy.Name = "clientNameCopy";
-            this.clientNameCopy.Size = new System.Drawing.Size(48, 42);
+            this.clientNameCopy.Size = new System.Drawing.Size(41, 50);
             this.clientNameCopy.TabIndex = 7;
-            this.clientNameCopy.Text = "copy";
             this.clientNameCopy.UseVisualStyleBackColor = true;
             this.clientNameCopy.Click += new System.EventHandler(this.clientNameCopy_Click);
             // 
             // phoneNumberCopy
             // 
-            this.phoneNumberCopy.Location = new System.Drawing.Point(302, 108);
+            this.phoneNumberCopy.Location = new System.Drawing.Point(6, 108);
             this.phoneNumberCopy.Name = "phoneNumberCopy";
-            this.phoneNumberCopy.Size = new System.Drawing.Size(48, 42);
+            this.phoneNumberCopy.Size = new System.Drawing.Size(41, 42);
             this.phoneNumberCopy.TabIndex = 8;
-            this.phoneNumberCopy.Text = "copy";
             this.phoneNumberCopy.UseVisualStyleBackColor = true;
             this.phoneNumberCopy.Click += new System.EventHandler(this.phoneNumberCopy_Click);
             // 
@@ -118,20 +121,19 @@
             // 
             this.requestDescriptionCopy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.requestDescriptionCopy.Location = new System.Drawing.Point(302, 156);
+            this.requestDescriptionCopy.Location = new System.Drawing.Point(6, 156);
             this.requestDescriptionCopy.Name = "requestDescriptionCopy";
-            this.requestDescriptionCopy.Size = new System.Drawing.Size(48, 198);
+            this.requestDescriptionCopy.Size = new System.Drawing.Size(41, 193);
             this.requestDescriptionCopy.TabIndex = 9;
-            this.requestDescriptionCopy.Text = "copy";
             this.requestDescriptionCopy.UseVisualStyleBackColor = true;
             this.requestDescriptionCopy.Click += new System.EventHandler(this.requestDescriptionCopy_Click);
             // 
             // clearButton
             // 
             this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.clearButton.Location = new System.Drawing.Point(12, 360);
+            this.clearButton.Location = new System.Drawing.Point(6, 355);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(338, 75);
+            this.clearButton.Size = new System.Drawing.Size(344, 75);
             this.clearButton.TabIndex = 5;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -150,20 +152,10 @@
             this.control.Text = "Занесено в Контроль";
             this.control.UseVisualStyleBackColor = true;
             // 
-            // countOfInn
-            // 
-            this.countOfInn.AutoSize = true;
-            this.countOfInn.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countOfInn.Location = new System.Drawing.Point(272, 37);
-            this.countOfInn.Name = "countOfInn";
-            this.countOfInn.Size = new System.Drawing.Size(16, 17);
-            this.countOfInn.TabIndex = 12;
-            this.countOfInn.Text = "0";
-            // 
             // historyButton
             // 
             this.historyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.historyButton.Location = new System.Drawing.Point(808, 282);
+            this.historyButton.Location = new System.Drawing.Point(688, 277);
             this.historyButton.Name = "historyButton";
             this.historyButton.Size = new System.Drawing.Size(128, 47);
             this.historyButton.TabIndex = 13;
@@ -174,7 +166,7 @@
             // trackingButton
             // 
             this.trackingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackingButton.Location = new System.Drawing.Point(808, 335);
+            this.trackingButton.Location = new System.Drawing.Point(688, 330);
             this.trackingButton.Name = "trackingButton";
             this.trackingButton.Size = new System.Drawing.Size(128, 47);
             this.trackingButton.TabIndex = 14;
@@ -184,18 +176,98 @@
             // archiveButton
             // 
             this.archiveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.archiveButton.Location = new System.Drawing.Point(808, 388);
+            this.archiveButton.Location = new System.Drawing.Point(688, 383);
             this.archiveButton.Name = "archiveButton";
             this.archiveButton.Size = new System.Drawing.Size(128, 47);
             this.archiveButton.TabIndex = 15;
             this.archiveButton.Text = "Архив";
             this.archiveButton.UseVisualStyleBackColor = true;
             // 
+            // countOfInn
+            // 
+            this.countOfInn.AutoSize = true;
+            this.countOfInn.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countOfInn.Location = new System.Drawing.Point(326, 29);
+            this.countOfInn.Name = "countOfInn";
+            this.countOfInn.Size = new System.Drawing.Size(24, 17);
+            this.countOfInn.TabIndex = 16;
+            this.countOfInn.Text = "10";
+            this.countOfInn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ikz
+            // 
+            this.ikz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ikz.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ikz.Location = new System.Drawing.Point(356, 355);
+            this.ikz.Name = "ikz";
+            this.ikz.Size = new System.Drawing.Size(326, 33);
+            this.ikz.TabIndex = 17;
+            this.ikz.Text = "";
+            // 
+            // ikzButton
+            // 
+            this.ikzButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ikzButton.Location = new System.Drawing.Point(356, 394);
+            this.ikzButton.Name = "ikzButton";
+            this.ikzButton.Size = new System.Drawing.Size(115, 36);
+            this.ikzButton.TabIndex = 18;
+            this.ikzButton.Text = "ИКЗ";
+            this.ikzButton.UseVisualStyleBackColor = true;
+            this.ikzButton.Click += new System.EventHandler(this.ikzButton_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox1.Location = new System.Drawing.Point(592, 39);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(224, 101);
+            this.richTextBox1.TabIndex = 19;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox2.Location = new System.Drawing.Point(592, 146);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(224, 101);
+            this.richTextBox2.TabIndex = 20;
+            this.richTextBox2.Text = "";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox3.Location = new System.Drawing.Point(362, 146);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(224, 101);
+            this.richTextBox3.TabIndex = 22;
+            this.richTextBox3.Text = "";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox4.Location = new System.Drawing.Point(362, 39);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(224, 101);
+            this.richTextBox4.TabIndex = 21;
+            this.richTextBox4.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 447);
+            this.ClientSize = new System.Drawing.Size(828, 442);
+            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.richTextBox4);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.ikzButton);
+            this.Controls.Add(this.ikz);
+            this.Controls.Add(this.countOfInn);
             this.Controls.Add(this.inn);
             this.Controls.Add(this.clientName);
             this.Controls.Add(this.phoneNumber);
@@ -203,7 +275,6 @@
             this.Controls.Add(this.archiveButton);
             this.Controls.Add(this.trackingButton);
             this.Controls.Add(this.historyButton);
-            this.Controls.Add(this.countOfInn);
             this.Controls.Add(this.control);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.requestDescriptionCopy);
@@ -230,10 +301,15 @@
         private System.Windows.Forms.Button requestDescriptionCopy;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.CheckBox control;
-        private System.Windows.Forms.Label countOfInn;
         private System.Windows.Forms.Button historyButton;
         private System.Windows.Forms.Button trackingButton;
         private System.Windows.Forms.Button archiveButton;
-        
+        private System.Windows.Forms.Label countOfInn;
+        private System.Windows.Forms.RichTextBox ikz;
+        private System.Windows.Forms.Button ikzButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox richTextBox4;
     }
 }
