@@ -20,7 +20,7 @@ namespace HotDrop.Forms
 
         private void RefreshTable()
         {
-            var table = Program.dataBase.GetTable("SELECT * FROM CallCells");
+            var table = Program.dataBase.GetTable("SELECT * FROM CallCells ORDER BY callDateTime DESC");
 
             historyDataGridView.DataSource = table;
         }

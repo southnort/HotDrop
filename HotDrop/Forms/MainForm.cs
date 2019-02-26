@@ -12,6 +12,17 @@ namespace HotDrop
             InitializeComponent();
 
             Text += " - " + Application.ProductVersion;
+
+            string date = DateTime.Today.Day == 5 ?
+                DateTime.Today.AddDays(3).ToShortDateString() :
+                DateTime.Today.AddDays(1).ToShortDateString();
+
+            string requestText =
+               $"Если ответа от вас не поступит до вечера \"{date}\", обращение будет автоматически закрыто";
+            richTextBox1.Text = requestText;
+            richTextBox2.Text = "Обращение заказчика";
+
+
         }
 
 
