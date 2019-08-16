@@ -11,7 +11,7 @@ namespace HotDrop.Models
     /// класс описывает звонок.
     /// Кто звонил, с какого телефона, краткое описание проблемы
     /// </summary>
-    public class CallCell : IDataDased
+    public class CallCell : IDataBased
     {
         public CallCell(string inn, string clientName,
             string phoneNumber, string descr, bool control)

@@ -180,8 +180,9 @@
             this.archiveButton.Name = "archiveButton";
             this.archiveButton.Size = new System.Drawing.Size(128, 47);
             this.archiveButton.TabIndex = 15;
-            this.archiveButton.Text = "Архив";
+            this.archiveButton.Text = "База знаний";
             this.archiveButton.UseVisualStyleBackColor = true;
+            this.archiveButton.Click += new System.EventHandler(this.archiveButton_Click);
             // 
             // countOfInn
             // 

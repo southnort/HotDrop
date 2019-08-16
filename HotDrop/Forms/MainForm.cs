@@ -13,7 +13,7 @@ namespace HotDrop
 
             Text += " - " + Application.ProductVersion;
 
-            string date = DateTime.Today.Day == 5 ?
+            string date = DateTime.Today.DayOfWeek== DayOfWeek.Friday ?
                 DateTime.Today.AddDays(3).ToShortDateString() :
                 DateTime.Today.AddDays(1).ToShortDateString();
 
@@ -70,6 +70,7 @@ namespace HotDrop
             clientName.Clear();
             phoneNumber.Clear();
             requestDescription.Clear();
+            ikz.Clear();
 
         }
 
@@ -95,6 +96,12 @@ namespace HotDrop
             {
                 ikz.Text += "  Error";
             }
+        }
+
+        private void archiveButton_Click(object sender, EventArgs e)
+        {
+            var form = new BaseOfKnowledgeMain();
+            form.Show();
         }
     }
 }
