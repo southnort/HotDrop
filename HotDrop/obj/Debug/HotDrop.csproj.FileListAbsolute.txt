@@ -37,3 +37,5 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.csproj.Co
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.exe
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.pdb
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.SelectedCellForm.resources
+C:\Users\User\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.BaseOfKnowledgeMain.resources
+C:\Users\User\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.SelectedCellForm.resources

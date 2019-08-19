@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using HotDrop.Models;
 using HotDrop.Forms;
+using System.Drawing;
+
 
 namespace HotDrop
 {
@@ -13,7 +15,7 @@ namespace HotDrop
 
             Text += " - " + Application.ProductVersion;
 
-            string date = DateTime.Today.DayOfWeek== DayOfWeek.Friday ?
+            string date = DateTime.Today.DayOfWeek == DayOfWeek.Friday ?
                 DateTime.Today.AddDays(3).ToShortDateString() :
                 DateTime.Today.AddDays(1).ToShortDateString();
 
@@ -37,27 +39,50 @@ namespace HotDrop
 
         private void innCopy_Click(object sender, EventArgs e)
         {
-            if (inn.Text.Length > 0)
-                Clipboard.SetText(inn.Text);
+            CopyText(inn);
         }
 
         private void clientNameCopy_Click(object sender, EventArgs e)
         {
-            if (clientName.Text.Length > 0)
-                Clipboard.SetText(clientName.Text);
+            CopyText(clientName);
         }
 
         private void phoneNumberCopy_Click(object sender, EventArgs e)
         {
-            if (phoneNumber.Text.Length > 0)
-                Clipboard.SetText(phoneNumber.Text);
+            CopyText(phoneNumber);
         }
 
         private void requestDescriptionCopy_Click(object sender, EventArgs e)
         {
-            if (requestDescription.Text.Length > 0)
-                Clipboard.SetText(requestDescription.Text);
+            CopyText(requestDescription);
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CopyText(richTextBox4);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CopyText(richTextBox3);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CopyText(richTextBox1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CopyText(richTextBox2);
+        }
+
+        private void CopyText(RichTextBox textBox)
+        {
+            CommonMethods.CopyText(textBox);
+        }
+
 
         private void clearButton_Click(object sender, EventArgs e)
         {
@@ -98,10 +123,30 @@ namespace HotDrop
             }
         }
 
+        private void accountButton_Click(object sender, EventArgs e)
+        {
+            ikz.Text = ikz.Text.Replace(".", "");
+        }
+
+
         private void archiveButton_Click(object sender, EventArgs e)
         {
             var form = new BaseOfKnowledgeMain();
             form.Show();
+        }
+
+        private void control_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!control.Checked)
+            {
+                control.ForeColor = Color.Red;
+                control.BackColor = Color.Aquamarine;
+            }
+            else
+            {
+                control.ForeColor = Color.Black;
+                control.BackColor = SystemColors.Control;
+            }
         }
     }
 }
