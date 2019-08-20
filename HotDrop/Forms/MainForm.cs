@@ -89,7 +89,8 @@ namespace HotDrop
             CallCell cc = new CallCell(inn.Text, clientName.Text,
                 phoneNumber.Text, requestDescription.Text, control.Checked);
 
-            Program.dataBase.ExecuteCommand(cc.ToDataBaseString());
+            Program.dataBase.CallCells.Add(cc);
+            Program.dataBase.SaveChanges();
 
             inn.Clear();
             clientName.Clear();

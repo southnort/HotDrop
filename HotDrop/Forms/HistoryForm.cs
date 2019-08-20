@@ -13,6 +13,7 @@ namespace HotDrop.Forms
 {
     public partial class HistoryForm : Form
     {
+        private HotDropContext db = Program.dataBase;
         public HistoryForm()
         {
             InitializeComponent();
@@ -20,8 +21,7 @@ namespace HotDrop.Forms
 
         private void RefreshTable()
         {
-            var table = Program.dataBase.GetTable("SELECT * FROM CallCells ORDER BY callDateTime DESC");
-
+            var table = Program.dataBase.CallCells.ToList();
             historyDataGridView.DataSource = table;
         }
 
@@ -39,7 +39,7 @@ namespace HotDrop.Forms
         {
             if (historyDataGridView.CurrentRow != null)
             {
-                string id = historyDataGridView.CurrentRow.Cells[0].Value.ToString();
+                var id = (int)historyDataGridView.CurrentRow.Cells[0].Value;
 
                 string text = "Действительно удалить " + id + "?";
                 DialogResult dialogResult = MessageBox.Show(text,
@@ -47,7 +47,9 @@ namespace HotDrop.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Program.dataBase.ExecuteCommand($"DELETE FROM CallCells WHERE id = {id}");
+                    var item = db.CallCells.Single(x => x.Id == id);
+                    db.CallCells.Remove(item);
+                    db.SaveChanges();
                     RefreshTable();
                 }
             }
@@ -57,11 +59,8 @@ namespace HotDrop.Forms
         {
             if (historyDataGridView.CurrentRow != null)
             {
-                string id = historyDataGridView.CurrentRow.Cells[0].Value.ToString();
-                var table = Program.dataBase.GetTable
-                    ($"SELECT * FROM CallCells WHERE id = {id}");
-                var cell = table.Rows[0];
-                var call = new CallCell(cell);
+                var id = (int)historyDataGridView.CurrentRow.Cells[0].Value;
+                var call = db.CallCells.Single(x => x.Id == id);
 
                 SelectedCellForm form = new SelectedCellForm(call);
                 form.ShowDialog();

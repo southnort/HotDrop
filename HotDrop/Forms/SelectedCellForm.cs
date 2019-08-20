@@ -24,44 +24,44 @@ namespace HotDrop.Forms
 
         private void SelectedCellForm_Load(object sender, EventArgs e)
         {
-            inn.Text = call.inn;
-            clientName.Text = call.clientName;
-            phoneNumber.Text = call.phoneNumber;
-            descr.Text = call.descr;
+            inn.Text = call.Inn;
+            clientName.Text = call.ClientName;
+            phoneNumber.Text = call.PhoneNumber;
+            descr.Text = call.Descr;
 
-            control.Checked = call.logged == 1;
+            control.Checked = call.Logged == 1;
 
         }
 
         private void inn_TextChanged(object sender, EventArgs e)
         {
-            call.inn = inn.Text;
+            call.Inn = inn.Text;
         }
 
         private void clientName_TextChanged(object sender, EventArgs e)
         {
-            call.clientName = clientName.Text;
+            call.ClientName = clientName.Text;
         }
 
         private void phoneNumber_TextChanged(object sender, EventArgs e)
         {
-            call.phoneNumber = phoneNumber.Text;
+            call.PhoneNumber = phoneNumber.Text;
         }
 
         private void descr_TextChanged(object sender, EventArgs e)
         {
-            call.descr = descr.Text;
+            call.Descr = descr.Text;
         }
 
         private void control_CheckedChanged(object sender, EventArgs e)
         {
-            call.logged = control.Checked ? 1 : 0;
+            call.Logged = control.Checked ? 1 : 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Program.dataBase.ExecuteCommand(call.ToDataBaseString());
-
+           // Program.dataBase.ExecuteCommand(call.ToDataBaseString());
+           
             DialogResult = DialogResult.OK;
         }
 

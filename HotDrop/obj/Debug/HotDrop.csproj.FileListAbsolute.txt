@@ -40,3 +40,9 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.Sel
 C:\Users\User\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.BaseOfKnowledgeMain.resources
 C:\Users\User\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.SelectedCellForm.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.BaseOfKnowledgeMain.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Devart.Data.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Devart.Data.SQLite.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.xml
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.SqlServer.xml
