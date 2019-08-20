@@ -14,7 +14,7 @@ namespace HotDrop
             CreateDataBase(dbFileName, commandString);
 
         }
-               
+
         public void UpdateTables(string dbFileName)
         {
             //обновить существующие таблицы, добавить в них новые колонки
@@ -27,7 +27,7 @@ namespace HotDrop
             m_sqlCmd.Connection = m_dbConn;
 
 
-            
+
 
         }
 
@@ -59,7 +59,6 @@ namespace HotDrop
 
 
         //описания таблиц в базе данных
-
         private string CreateCommandString_CalCellsTable()
         {
             //создать commandString для таблицы учёта звонков

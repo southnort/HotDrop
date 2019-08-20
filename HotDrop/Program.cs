@@ -10,6 +10,7 @@ namespace HotDrop
     {
         public static DataBaseManager dataBase;
         private static string dbFileName = "HotDropDataBase.sqlite";
+        private static string dbFileName_debug = "HotDropDataBaseDebug.sqlite";
 
         [STAThread]
         static void Main()
@@ -26,16 +27,26 @@ namespace HotDrop
         {
             //настраиваем соединения с БД            
 
+#if (DEBUG)
+            {
+                DataBaseCreator creator = new DataBaseCreator();
+                creator.CreateMainDataBase(dbFileName_debug);
+                creator.UpdateTables(dbFileName_debug);
+                creator = null;
+                dataBase = new DataBaseManager();
+                dataBase.ConnectToDataBase(dbFileName_debug);
+            }
+#else
+            {
+                DataBaseCreator creator = new DataBaseCreator();
+                creator.CreateMainDataBase(dbFileName);
+                creator.UpdateTables(dbFileName);
+                creator = null;
+                dataBase = new DataBaseManager();
+                dataBase.ConnectToDataBase(dbFileName);
+            }
 
-            DataBaseCreator creator = new DataBaseCreator();
-            creator.CreateMainDataBase(dbFileName);
-            creator.UpdateTables(dbFileName);
-            creator = null;
-
-            
-            dataBase = new DataBaseManager();
-            dataBase.ConnectToDataBase(dbFileName);
+#endif
         }
-
     }
 }

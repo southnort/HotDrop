@@ -67,22 +67,22 @@ namespace HotDrop.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            CommonMethods.CopyText(inn);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            CommonMethods.CopyText(clientName);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            CommonMethods.CopyText(phoneNumber);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            CommonMethods.CopyText(descr);
         }
     }
 }

@@ -99,6 +99,7 @@
       <DependentUpon>SelectedCellForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CallCell.cs" />
+    <Compile Include="Models\KnowledgeCell.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\BaseOfKnowledgeMain.resx">

@@ -13,6 +13,18 @@ namespace HotDrop.Models
     /// </summary>
     public class CallCell : IDataBased
     {
+        public int id { get; set; }     //ид для базы данных
+        public string inn { get; set; }     //инн организации
+        public string clientName { get; set; }      //ФИО звонящего
+        public string phoneNumber { get; set; }     //телефон, откуда звонит
+        public string descr { get; set; }      //описание проблемы
+
+        public string callDateTime { get; set; }        //дата, время обращения
+
+        public int logged { get; set; }     //занесено ли в контроль. 1 - да, 0 - нет
+
+
+
         public CallCell(string inn, string clientName,
             string phoneNumber, string descr, bool control)
         {
@@ -38,16 +50,6 @@ namespace HotDrop.Models
 
         }
 
-
-        public int id { get; set; }     //ид для базы данных
-        public string inn { get; set; }     //инн организации
-        public string clientName { get; set; }      //ФИО звонящего
-        public string phoneNumber { get; set; }     //телефон, откуда звонит
-        public string descr { get; set; }      //описание проблемы
-
-        public string callDateTime { get; set; }        //дата, время обращения
-
-        public int logged { get; set; }     //занесено ли в контроль. 1 - да, 0 - нет
 
 
 
@@ -116,22 +118,19 @@ namespace HotDrop.Models
             return sb.ToString();
         }
 
-
-
         private int GetInt(object val)
         {
-            if (val is DBNull) return 0;
-            else
-                return (int)(long)val;
-
+            return CommonMethods.GetInt(val);
         }
 
         private string GetStr(object val)
         {
-            if (val is DBNull) return "";
-            else
-                return val.ToString();
+            return CommonMethods.GetStr(val);
         }
+
+
+
+
 
     }
 }
