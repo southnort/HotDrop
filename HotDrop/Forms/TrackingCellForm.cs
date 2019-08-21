@@ -39,6 +39,7 @@ namespace HotDrop.Forms
             cell.Description = requestTextTextBox.Text;
             cell.IsDone = readyCheckBox.Checked ? 1 : 0;
 
+            Program.dataBase.SaveChanges();
             DialogResult = DialogResult.OK;
         }
 
@@ -54,6 +55,7 @@ namespace HotDrop.Forms
             cell.Description = requestTextTextBox.Text;
             cell.IsDone = 1;
 
+            Program.dataBase.SaveChanges();
             DialogResult = DialogResult.OK;
         }
 

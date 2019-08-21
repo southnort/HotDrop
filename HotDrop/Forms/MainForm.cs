@@ -108,7 +108,8 @@ namespace HotDrop
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
-            var form = new BaseOfKnowledgeMain();
+            //var form = new BaseOfKnowledgeMain();
+            var form = new KnowledgeCellForm();
             form.Show();
         }
 

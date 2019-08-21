@@ -95,6 +95,12 @@
     <Compile Include="Forms\HistoryForm.Designer.cs">
       <DependentUpon>HistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\KnowledgeCellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KnowledgeCellForm.Designer.cs">
+      <DependentUpon>KnowledgeCellForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HistoryForm.resx">
       <DependentUpon>HistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KnowledgeCellForm.resx">
+      <DependentUpon>KnowledgeCellForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

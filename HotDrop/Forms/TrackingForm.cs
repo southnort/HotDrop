@@ -22,11 +22,12 @@ namespace HotDrop.Forms
         }
 
         private void RefreshTable()
-        {
+        {       
             if (onlyActiveCheckBox.Checked)
-                table = db.TrackingCells.Where(x => x.IsDone != 1).OrderByDescending(x => x.CreationDate).ToList();
+                table = db.TrackingCells.Where(x => x.IsDone != 1).ToList();
             else
-                table = db.TrackingCells.OrderByDescending(x => x.CreationDate).ToList();
+                table = db.TrackingCells.ToList();
+
             trackingDataGridView.DataSource = table;
         }
 
@@ -83,8 +84,7 @@ namespace HotDrop.Forms
             {
                 db.TrackingCells.Add(cell);
                 db.SaveChanges();
-
-                table = db.TrackingCells.OrderByDescending(x => x.CreationDate).ToList();
+                
                 RefreshTable();
             }
         }

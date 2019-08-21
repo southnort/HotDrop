@@ -16,3 +16,14 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.csproj.
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.csproj.CopyComplete
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.exe
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.pdb
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\Devart.Data.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\Devart.Data.SQLite.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\EntityFramework.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\EntityFramework.xml
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.BaseOfKnowledgeMain.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.TrackingCellForm.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.TrackingForm.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.InitialCreate.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.Tracking.resources

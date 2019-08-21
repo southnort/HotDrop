@@ -22,12 +22,26 @@ namespace HotDrop.Forms
 
         private void RefreshTable()
         {
+            if (filterTextBox.Text.Length > 0)
+            {
+                var text = filterTextBox.Text;
+
+                table = db.CallCells.Where(x =>
+                x.ClientName.Contains(text) ||
+                x.Descr.Contains(text) ||
+                x.PhoneNumber.Contains(text) ||
+                x.Inn.Contains(text)            
+                )
+                .OrderByDescending(x => x.CallDateTime).ToList();
+            }
+
+            else
+                table = db.CallCells.OrderByDescending(x => x.CallDateTime).ToList();
             historyDataGridView.DataSource = table;
         }
 
         private void HistoryForm_Load(object sender, EventArgs e)
         {
-            table = db.CallCells.OrderByDescending(x => x.CallDateTime).ToList();
             RefreshTable();
         }
 
@@ -65,10 +79,15 @@ namespace HotDrop.Forms
 
                 SelectedCellForm form = new SelectedCellForm(call);
                 form.ShowDialog();
-                table = db.CallCells.OrderByDescending(x => x.CallDateTime).ToList();
                 RefreshTable();
             }
 
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            filterTextBox.Clear();
+            RefreshTable();
         }
     }
 }

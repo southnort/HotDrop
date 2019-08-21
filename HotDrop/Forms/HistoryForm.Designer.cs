@@ -33,6 +33,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.deleteButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.clearFilterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,9 +48,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.historyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.historyDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.historyDataGridView.Location = new System.Drawing.Point(12, 76);
+            this.historyDataGridView.Location = new System.Drawing.Point(12, 92);
             this.historyDataGridView.Name = "historyDataGridView";
-            this.historyDataGridView.Size = new System.Drawing.Size(776, 362);
+            this.historyDataGridView.Size = new System.Drawing.Size(776, 346);
             this.historyDataGridView.TabIndex = 0;
             this.historyDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyDataGridView_CellDoubleClick);
             // 
@@ -56,11 +58,13 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.clearFilterButton);
+            this.panel1.Controls.Add(this.filterTextBox);
             this.panel1.Controls.Add(this.deleteButton);
             this.panel1.Controls.Add(this.refreshButton);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 58);
+            this.panel1.Size = new System.Drawing.Size(776, 74);
             this.panel1.TabIndex = 1;
             // 
             // deleteButton
@@ -83,6 +87,23 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // filterTextBox
+            // 
+            this.filterTextBox.Location = new System.Drawing.Point(3, 45);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(206, 20);
+            this.filterTextBox.TabIndex = 2;
+            // 
+            // clearFilterButton
+            // 
+            this.clearFilterButton.Location = new System.Drawing.Point(208, 44);
+            this.clearFilterButton.Name = "clearFilterButton";
+            this.clearFilterButton.Size = new System.Drawing.Size(19, 21);
+            this.clearFilterButton.TabIndex = 3;
+            this.clearFilterButton.Text = "X";
+            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            // 
             // HistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,6 +117,7 @@
             this.Load += new System.EventHandler(this.HistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -106,5 +128,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button clearFilterButton;
+        private System.Windows.Forms.TextBox filterTextBox;
     }
 }

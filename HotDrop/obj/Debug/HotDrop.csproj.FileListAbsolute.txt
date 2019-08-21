@@ -50,3 +50,4 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.Tra
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.TrackingForm.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Migrations.InitialCreate.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Migrations.Tracking.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.KnowledgeCellForm.resources
