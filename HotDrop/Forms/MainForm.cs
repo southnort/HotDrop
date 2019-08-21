@@ -102,7 +102,19 @@ namespace HotDrop
 
         private void historyButton_Click(object sender, EventArgs e)
         {
-            HistoryForm form = new HistoryForm();
+            var form = new HistoryForm();
+            form.Show();
+        }
+
+        private void archiveButton_Click(object sender, EventArgs e)
+        {
+            var form = new BaseOfKnowledgeMain();
+            form.Show();
+        }
+
+        private void trackingButton_Click(object sender, EventArgs e)
+        {
+            var form = new TrackingForm();
             form.Show();
         }
 
@@ -129,12 +141,7 @@ namespace HotDrop
             ikz.Text = ikz.Text.Replace(".", "");
         }
 
-
-        private void archiveButton_Click(object sender, EventArgs e)
-        {
-            var form = new BaseOfKnowledgeMain();
-            form.Show();
-        }
+       
 
         private void control_CheckedChanged(object sender, EventArgs e)
         {
@@ -149,5 +156,7 @@ namespace HotDrop
                 control.BackColor = SystemColors.Control;
             }
         }
+
+       
     }
 }

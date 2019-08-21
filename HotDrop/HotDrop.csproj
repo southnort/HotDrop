@@ -107,12 +107,34 @@
     <Compile Include="Forms\SelectedCellForm.Designer.cs">
       <DependentUpon>SelectedCellForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TrackingCellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TrackingCellForm.Designer.cs">
+      <DependentUpon>TrackingCellForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TrackingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TrackingForm.Designer.cs">
+      <DependentUpon>TrackingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908201020243_InitialCreate.cs" />
+    <Compile Include="Migrations\201908201020243_InitialCreate.Designer.cs">
+      <DependentUpon>201908201020243_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210842290_Tracking.cs" />
+    <Compile Include="Migrations\201908210842290_Tracking.Designer.cs">
+      <DependentUpon>201908210842290_Tracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CallCell.cs" />
     <Compile Include="Models\CallCellOld.cs" />
     <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\HotDropContext.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\KnowledgeCell.cs" />
+    <Compile Include="Models\TrackingCell.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +149,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SelectedCellForm.resx">
       <DependentUpon>SelectedCellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TrackingCellForm.resx">
+      <DependentUpon>TrackingCellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TrackingForm.resx">
+      <DependentUpon>TrackingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201020243_InitialCreate.resx">
+      <DependentUpon>201908201020243_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210842290_Tracking.resx">
+      <DependentUpon>201908210842290_Tracking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

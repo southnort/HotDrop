@@ -178,6 +178,7 @@
             this.trackingButton.TabIndex = 14;
             this.trackingButton.Text = "Отслеживание";
             this.trackingButton.UseVisualStyleBackColor = true;
+            this.trackingButton.Click += new System.EventHandler(this.trackingButton_Click);
             // 
             // archiveButton
             // 

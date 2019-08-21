@@ -50,7 +50,7 @@
             this.historyDataGridView.Name = "historyDataGridView";
             this.historyDataGridView.Size = new System.Drawing.Size(776, 362);
             this.historyDataGridView.TabIndex = 0;
-            this.historyDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyDataGridView_CellContentClick);
+            this.historyDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyDataGridView_CellDoubleClick);
             // 
             // panel1
             // 

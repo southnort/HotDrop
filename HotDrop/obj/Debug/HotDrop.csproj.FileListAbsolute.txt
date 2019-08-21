@@ -46,3 +46,7 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.d
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.xml
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.TrackingCellForm.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.TrackingForm.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Migrations.InitialCreate.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Migrations.Tracking.resources

@@ -14,6 +14,7 @@ namespace HotDrop.Forms
     public partial class HistoryForm : Form
     {
         private HotDropContext db = Program.dataBase;
+        private List<CallCell> table;
         public HistoryForm()
         {
             InitializeComponent();
@@ -21,12 +22,12 @@ namespace HotDrop.Forms
 
         private void RefreshTable()
         {
-            var table = Program.dataBase.CallCells.ToList();
             historyDataGridView.DataSource = table;
         }
 
         private void HistoryForm_Load(object sender, EventArgs e)
         {
+            table = db.CallCells.OrderByDescending(x => x.CallDateTime).ToList();
             RefreshTable();
         }
 
@@ -55,7 +56,7 @@ namespace HotDrop.Forms
             }
         }
 
-        private void historyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void historyDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (historyDataGridView.CurrentRow != null)
             {
@@ -64,6 +65,7 @@ namespace HotDrop.Forms
 
                 SelectedCellForm form = new SelectedCellForm(call);
                 form.ShowDialog();
+                table = db.CallCells.OrderByDescending(x => x.CallDateTime).ToList();
                 RefreshTable();
             }
 

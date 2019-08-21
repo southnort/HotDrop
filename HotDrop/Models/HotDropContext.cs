@@ -17,6 +17,7 @@ namespace HotDrop
         }
 
         public DbSet<CallCell> CallCells { get; set; }
+        public DbSet<TrackingCell> TrackingCells { get; set; }
 
     }
 }
