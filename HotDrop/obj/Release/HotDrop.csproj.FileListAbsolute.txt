@@ -27,3 +27,7 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.T
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.TrackingForm.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.InitialCreate.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.Tracking.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.KnowledgeCellEditingForm.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.KnowledgeCellForm.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase2.resources

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotDrop.Models
 {
-    abstract class Item
+    public abstract class Item
     {
         public int Id { get; set; }
         public string Name { get; set; }

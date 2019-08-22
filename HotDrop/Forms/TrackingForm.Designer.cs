@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrackingForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.onlyActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.createButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.trackingDataGridView = new System.Windows.Forms.DataGridView();
-            this.onlyActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackingDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +51,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 66);
             this.panel1.TabIndex = 3;
+            // 
+            // onlyActiveCheckBox
+            // 
+            this.onlyActiveCheckBox.AutoSize = true;
+            this.onlyActiveCheckBox.Checked = true;
+            this.onlyActiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.onlyActiveCheckBox.Location = new System.Drawing.Point(3, 45);
+            this.onlyActiveCheckBox.Name = "onlyActiveCheckBox";
+            this.onlyActiveCheckBox.Size = new System.Drawing.Size(179, 17);
+            this.onlyActiveCheckBox.TabIndex = 3;
+            this.onlyActiveCheckBox.Text = "Показывать только активные";
+            this.onlyActiveCheckBox.UseVisualStyleBackColor = true;
             // 
             // createButton
             // 
@@ -98,18 +110,6 @@
             this.trackingDataGridView.Size = new System.Drawing.Size(776, 354);
             this.trackingDataGridView.TabIndex = 2;
             this.trackingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.trackingDataGridView_CellDoubleClick);
-            // 
-            // onlyActiveCheckBox
-            // 
-            this.onlyActiveCheckBox.AutoSize = true;
-            this.onlyActiveCheckBox.Checked = true;
-            this.onlyActiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.onlyActiveCheckBox.Location = new System.Drawing.Point(3, 45);
-            this.onlyActiveCheckBox.Name = "onlyActiveCheckBox";
-            this.onlyActiveCheckBox.Size = new System.Drawing.Size(179, 17);
-            this.onlyActiveCheckBox.TabIndex = 3;
-            this.onlyActiveCheckBox.Text = "Показывать только активные";
-            this.onlyActiveCheckBox.UseVisualStyleBackColor = true;
             // 
             // TrackingForm
             // 

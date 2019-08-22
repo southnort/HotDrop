@@ -95,6 +95,12 @@
     <Compile Include="Forms\HistoryForm.Designer.cs">
       <DependentUpon>HistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\KnowledgeCellEditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KnowledgeCellEditingForm.Designer.cs">
+      <DependentUpon>KnowledgeCellEditingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KnowledgeCellForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,18 @@
     <Compile Include="Migrations\201908210842290_Tracking.Designer.cs">
       <DependentUpon>201908210842290_Tracking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908220813535_KnowledgeDataBase.cs" />
+    <Compile Include="Migrations\201908220813535_KnowledgeDataBase.Designer.cs">
+      <DependentUpon>201908220813535_KnowledgeDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908220847406_KnowledgeDataBase2.cs" />
+    <Compile Include="Migrations\201908220847406_KnowledgeDataBase2.Designer.cs">
+      <DependentUpon>201908220847406_KnowledgeDataBase2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908221207244_KnowledgeDataBase3.cs" />
+    <Compile Include="Migrations\201908221207244_KnowledgeDataBase3.Designer.cs">
+      <DependentUpon>201908221207244_KnowledgeDataBase3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CallCell.cs" />
     <Compile Include="Models\CallCellOld.cs" />
@@ -140,6 +158,8 @@
     <Compile Include="Models\HotDropContext.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\KnowledgeCell.cs" />
+    <Compile Include="Models\KnowledgeCellTag.cs" />
+    <Compile Include="Models\KnowledgeCellType.cs" />
     <Compile Include="Models\TrackingCell.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Program.cs" />
@@ -149,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HistoryForm.resx">
       <DependentUpon>HistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KnowledgeCellEditingForm.resx">
+      <DependentUpon>KnowledgeCellEditingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KnowledgeCellForm.resx">
       <DependentUpon>KnowledgeCellForm.cs</DependentUpon>
@@ -170,6 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908210842290_Tracking.resx">
       <DependentUpon>201908210842290_Tracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908220813535_KnowledgeDataBase.resx">
+      <DependentUpon>201908220813535_KnowledgeDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908220847406_KnowledgeDataBase2.resx">
+      <DependentUpon>201908220847406_KnowledgeDataBase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908221207244_KnowledgeDataBase3.resx">
+      <DependentUpon>201908221207244_KnowledgeDataBase3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

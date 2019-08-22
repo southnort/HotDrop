@@ -29,6 +29,7 @@ namespace HotDrop.Forms
                 table = db.TrackingCells.ToList();
 
             trackingDataGridView.DataSource = table;
+            trackingDataGridView.Columns["Description"].Width = 350;
         }
 
         private void TrackingForm_Load(object sender, EventArgs e)

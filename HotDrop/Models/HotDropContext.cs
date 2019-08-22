@@ -18,6 +18,9 @@ namespace HotDrop
 
         public DbSet<CallCell> CallCells { get; set; }
         public DbSet<TrackingCell> TrackingCells { get; set; }
-
+        public DbSet<KnowledgeCell> KnowledgeCells { get; set; }
+        public DbSet<DocumentType> DocumentTypes { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+       
     }
 }

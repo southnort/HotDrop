@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HotDrop.Models
 {
-    class DocumentType : Item
+    public class DocumentType : Item
     {
+        public virtual List<KnowledgeCell> KnowledgeCells { get; set; }
     }
 }
