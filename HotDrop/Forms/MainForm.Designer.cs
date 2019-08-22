@@ -54,6 +54,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.accountButton = new System.Windows.Forms.Button();
+            this.pgButton = new System.Windows.Forms.Button();
+            this.pzButton = new System.Windows.Forms.Button();
+            this.quoteButton = new System.Windows.Forms.Button();
+            this.contractButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inn
@@ -315,11 +319,59 @@
             this.accountButton.UseVisualStyleBackColor = true;
             this.accountButton.Click += new System.EventHandler(this.accountButton_Click);
             // 
+            // pgButton
+            // 
+            this.pgButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pgButton.Location = new System.Drawing.Point(356, 313);
+            this.pgButton.Name = "pgButton";
+            this.pgButton.Size = new System.Drawing.Size(74, 36);
+            this.pgButton.TabIndex = 28;
+            this.pgButton.Text = "ПГ";
+            this.pgButton.UseVisualStyleBackColor = true;
+            this.pgButton.Click += new System.EventHandler(this.pgButton_Click);
+            // 
+            // pzButton
+            // 
+            this.pzButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pzButton.Location = new System.Drawing.Point(436, 313);
+            this.pzButton.Name = "pzButton";
+            this.pzButton.Size = new System.Drawing.Size(74, 36);
+            this.pzButton.TabIndex = 29;
+            this.pzButton.Text = "ПЗ";
+            this.pzButton.UseVisualStyleBackColor = true;
+            this.pzButton.Click += new System.EventHandler(this.pzButton_Click);
+            // 
+            // quoteButton
+            // 
+            this.quoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.quoteButton.Location = new System.Drawing.Point(516, 313);
+            this.quoteButton.Name = "quoteButton";
+            this.quoteButton.Size = new System.Drawing.Size(74, 36);
+            this.quoteButton.TabIndex = 30;
+            this.quoteButton.Text = "Извещение";
+            this.quoteButton.UseVisualStyleBackColor = true;
+            this.quoteButton.Click += new System.EventHandler(this.quoteButton_Click);
+            // 
+            // contractButton
+            // 
+            this.contractButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.contractButton.Location = new System.Drawing.Point(596, 313);
+            this.contractButton.Name = "contractButton";
+            this.contractButton.Size = new System.Drawing.Size(74, 36);
+            this.contractButton.TabIndex = 31;
+            this.contractButton.Text = "Контракт";
+            this.contractButton.UseVisualStyleBackColor = true;
+            this.contractButton.Click += new System.EventHandler(this.contractButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 442);
+            this.Controls.Add(this.contractButton);
+            this.Controls.Add(this.quoteButton);
+            this.Controls.Add(this.pzButton);
+            this.Controls.Add(this.pgButton);
             this.Controls.Add(this.accountButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
@@ -380,5 +432,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button accountButton;
+        private System.Windows.Forms.Button pgButton;
+        private System.Windows.Forms.Button pzButton;
+        private System.Windows.Forms.Button quoteButton;
+        private System.Windows.Forms.Button contractButton;
     }
 }

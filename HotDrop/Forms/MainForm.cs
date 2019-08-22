@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using HotDrop.Models;
 using HotDrop.Forms;
 using System.Drawing;
+using System.Diagnostics;
 
 
 namespace HotDrop
@@ -157,6 +158,41 @@ namespace HotDrop
             }
         }
 
-       
+
+        private void OpenLink(string url)
+        {
+            try
+            {
+                Process.Start(url);
+            }
+            catch (Exception ex)
+            {
+                ikz.Text = ex.Message;
+            }
+        }
+
+        private void pgButton_Click(object sender, EventArgs e)
+        {
+            var url = $@"http://zakupki.gov.ru/epz/orderplan/quicksearch/search.html?searchString={ikz.Text}&morphology=on&searchType=false&structured=true&fz44=on&fz223=on&regionDeleted=false&actualPeriodStart=01.01.2019&actualPeriodEnd=31.12.2019&sortBy=BY_MODIFY_DATE&pageNumber=1&sortDirection=false&recordsPerPage=_10";
+            OpenLink(url);
+        }
+
+        private void pzButton_Click(object sender, EventArgs e)
+        {
+            var url = $@"http://zakupki.gov.ru/epz/purchaseplanfz44/quicksearch/search.html?searchString={ikz.Text}&morphology=on&pageNumber=1&sortDirection=false&recordsPerPage=_10&plansSearch=false&structured=on&unstructured=on&regionDeleted=false&fiscalYear=0&planPeriodYearStart=0&planPeriodYearEnd=0&sortBy=UPDATE_DATE_SORT";
+            OpenLink(url);
+        }
+
+        private void quoteButton_Click(object sender, EventArgs e)
+        {
+            var url = $@"http://zakupki.gov.ru/epz/order/notice/ok504/view/common-info.html?regNumber={ikz.Text}";
+            OpenLink(url);
+        }
+
+        private void contractButton_Click(object sender, EventArgs e)
+        {
+            var url = $@"http://zakupki.gov.ru/epz/contract/contractCard/common-info.html?reestrNumber={ikz.Text}";
+            OpenLink(url);
+        }
     }
 }

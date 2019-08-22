@@ -19,7 +19,6 @@ C:\Users\User\Documents\Projects\HotDrop\HotDrop\bin\Debug\EntityFramework.SqlSe
 C:\Users\User\Documents\Projects\HotDrop\HotDrop\bin\Debug\System.Data.SQLite.xml
 C:\Users\User\Documents\Projects\HotDrop\HotDrop\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\User\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.HistoryForm.resources
-C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.csprojAssemblyReference.cache
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Forms.HistoryForm.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.MainForm.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Debug\HotDrop.Properties.Resources.resources

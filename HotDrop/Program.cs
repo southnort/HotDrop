@@ -7,9 +7,7 @@ using System.Windows.Forms;
 namespace HotDrop
 {
     static class Program
-    {
-        public static DataBaseManager manager;
-        private static string dbFileName = "HotDropDataBase.sqlite";        
+    {        
         public static HotDropContext dataBase;
 
         [STAThread]
