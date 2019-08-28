@@ -31,3 +31,4 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.K
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase2.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase3.resources
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.csprojAssemblyReference.cache

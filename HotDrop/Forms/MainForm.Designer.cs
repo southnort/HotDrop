@@ -58,6 +58,8 @@
             this.pzButton = new System.Windows.Forms.Button();
             this.quoteButton = new System.Windows.Forms.Button();
             this.contractButton = new System.Windows.Forms.Button();
+            this.allQuotesButton = new System.Windows.Forms.Button();
+            this.allContractsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inn
@@ -363,11 +365,35 @@
             this.contractButton.UseVisualStyleBackColor = true;
             this.contractButton.Click += new System.EventHandler(this.contractButton_Click);
             // 
+            // allQuotesButton
+            // 
+            this.allQuotesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.allQuotesButton.Location = new System.Drawing.Point(516, 271);
+            this.allQuotesButton.Name = "allQuotesButton";
+            this.allQuotesButton.Size = new System.Drawing.Size(74, 36);
+            this.allQuotesButton.TabIndex = 32;
+            this.allQuotesButton.Text = "Все извещения";
+            this.allQuotesButton.UseVisualStyleBackColor = true;
+            this.allQuotesButton.Click += new System.EventHandler(this.allQuotesButton_Click);
+            // 
+            // allContractsButton
+            // 
+            this.allContractsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.allContractsButton.Location = new System.Drawing.Point(596, 271);
+            this.allContractsButton.Name = "allContractsButton";
+            this.allContractsButton.Size = new System.Drawing.Size(74, 36);
+            this.allContractsButton.TabIndex = 33;
+            this.allContractsButton.Text = "Все контракты";
+            this.allContractsButton.UseVisualStyleBackColor = true;
+            this.allContractsButton.Click += new System.EventHandler(this.allContractsButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 442);
+            this.Controls.Add(this.allContractsButton);
+            this.Controls.Add(this.allQuotesButton);
             this.Controls.Add(this.contractButton);
             this.Controls.Add(this.quoteButton);
             this.Controls.Add(this.pzButton);
@@ -436,5 +462,7 @@
         private System.Windows.Forms.Button pzButton;
         private System.Windows.Forms.Button quoteButton;
         private System.Windows.Forms.Button contractButton;
+        private System.Windows.Forms.Button allQuotesButton;
+        private System.Windows.Forms.Button allContractsButton;
     }
 }

@@ -4,6 +4,7 @@ using HotDrop.Models;
 using HotDrop.Forms;
 using System.Drawing;
 using System.Diagnostics;
+using System.Threading;
 
 
 namespace HotDrop
@@ -90,8 +91,12 @@ namespace HotDrop
             CallCell cc = new CallCell(inn.Text, clientName.Text,
                 phoneNumber.Text, requestDescription.Text, control.Checked);
 
-            Program.dataBase.CallCells.Add(cc);
-            Program.dataBase.SaveChanges();
+            Thread savingThread = new Thread(() =>
+            {
+               Program.dataBase.CallCells.Add(cc);
+               Program.dataBase.SaveChanges();
+            });
+            savingThread.Start();
 
             inn.Clear();
             clientName.Clear();
@@ -109,7 +114,7 @@ namespace HotDrop
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
-            var form = new BaseOfKnowledgeMain();            
+            var form = new BaseOfKnowledgeMain();
             form.Show();
         }
 
@@ -142,7 +147,7 @@ namespace HotDrop
             ikz.Text = ikz.Text.Replace(".", "");
         }
 
-       
+
 
         private void control_CheckedChanged(object sender, EventArgs e)
         {
@@ -192,6 +197,18 @@ namespace HotDrop
         private void contractButton_Click(object sender, EventArgs e)
         {
             var url = $@"http://zakupki.gov.ru/epz/contract/contractCard/common-info.html?reestrNumber={ikz.Text}";
+            OpenLink(url);
+        }
+
+        private void allQuotesButton_Click(object sender, EventArgs e)
+        {
+            var url = $@"http://zakupki.gov.ru/epz/order/quicksearch/search.html?searchString={ikz.Text}&morphology=on";
+            OpenLink(url);
+        }
+
+        private void allContractsButton_Click(object sender, EventArgs e)
+        {
+            var url = $@"http://zakupki.gov.ru/epz/contract/quicksearch/search.html?searchString={ikz.Text}&morphology=on&pageNumber=1&sortDirection=false&recordsPerPage=_10&sortBy=PO_DATE_OBNOVLENIJA&fz44=on&contractPriceFrom=0&contractPriceTo=200000000000&contractStageList_0=on&contractStageList_1=on&contractStageList_2=on&contractStageList_3=on&contractStageList=0%2C1%2C2%2C3&regionDeleted=false";
             OpenLink(url);
         }
     }
