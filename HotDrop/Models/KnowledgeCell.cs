@@ -7,7 +7,7 @@ using System.Data;
 
 namespace HotDrop.Models
 {
-    public class KnowledgeCell
+    public class KnowledgeCell : IComparable
     {
         public int Id { get; set; }
         public string CreationDate { get; set; }
@@ -94,19 +94,31 @@ namespace HotDrop.Models
         public string GetTypesString()
         {
             var result = "";
-            foreach (var item in DocumentTypes)
-                result += item.Name + ", ";
+
+            if (DocumentTypes != null)
+                foreach (var item in DocumentTypes)
+                    result += item.Name + ", ";
+
+
             return result;
         }
 
         public string GetTagsString()
         {
             var result = "";
-            foreach (var item in Tags)
-                result += item.Name + ", ";
+
+            if (Tags != null)
+                foreach (var item in Tags)
+                    result += item.Name + ", ";
             return result;
         }
 
-
+        int IComparable.CompareTo(object obj)
+        {
+            var other = (KnowledgeCell)obj;
+            if (Heat > other.Heat) return 1;
+            else if (Heat < other.Heat) return -1;
+            else return 0;
+        }
     }
 }

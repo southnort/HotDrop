@@ -39,14 +39,18 @@
             this.tabControlPanel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.exportButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControlPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.exportButton);
             this.panel1.Controls.Add(this.clearFilterButton);
             this.panel1.Controls.Add(this.filterTextBox);
             this.panel1.Controls.Add(this.createButton);
@@ -54,7 +58,7 @@
             this.panel1.Controls.Add(this.refreshButton);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(711, 85);
+            this.panel1.Size = new System.Drawing.Size(782, 85);
             this.panel1.TabIndex = 0;
             // 
             // clearFilterButton
@@ -114,10 +118,11 @@
             // 
             this.tabControlPanel.Controls.Add(this.tabPage1);
             this.tabControlPanel.Controls.Add(this.tabPage2);
-            this.tabControlPanel.Location = new System.Drawing.Point(12, 103);
+            this.tabControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel.Location = new System.Drawing.Point(0, 0);
             this.tabControlPanel.Name = "tabControlPanel";
             this.tabControlPanel.SelectedIndex = 0;
-            this.tabControlPanel.Size = new System.Drawing.Size(711, 367);
+            this.tabControlPanel.Size = new System.Drawing.Size(782, 448);
             this.tabControlPanel.TabIndex = 1;
             // 
             // tabPage1
@@ -125,7 +130,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(703, 341);
+            this.tabPage1.Size = new System.Drawing.Size(774, 422);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -135,17 +140,38 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(703, 341);
+            this.tabPage2.Size = new System.Drawing.Size(774, 422);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.tabControlPanel);
+            this.panel2.Location = new System.Drawing.Point(12, 103);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(782, 448);
+            this.panel2.TabIndex = 2;
+            // 
+            // exportButton
+            // 
+            this.exportButton.Location = new System.Drawing.Point(668, 3);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(110, 79);
+            this.exportButton.TabIndex = 8;
+            this.exportButton.Text = "Экспорт в файл";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // BaseOfKnowledgeMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 482);
-            this.Controls.Add(this.tabControlPanel);
+            this.ClientSize = new System.Drawing.Size(806, 563);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BaseOfKnowledgeMain";
@@ -154,6 +180,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControlPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,5 +197,7 @@
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button clearFilterButton;
         private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button exportButton;
     }
 }

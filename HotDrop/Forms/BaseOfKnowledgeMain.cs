@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HtmlAgilityPack;
+
 
 namespace HotDrop.Forms
 {
@@ -43,7 +45,13 @@ namespace HotDrop.Forms
             var text = filterTextBox.Text;
             var page = new TabPage(type.Name);
             var dgv = new DataGridView();
-            var list = db.KnowledgeCells.Local.Where(x => x.DocumentTypes.Contains(type)).ToList();
+
+            var list = db.KnowledgeCells.Where(x => x.DocumentTypes.Any(y => y.Name == type.Name)).ToList();
+
+            //var list = db.KnowledgeCells.Local.Where(x => x.DocumentTypes.Contains(type)).ToList();
+            var allCells = db.KnowledgeCells.Local.ToList();
+
+            // var list = db.KnowledgeCells.Local.Where(x => x.DocumentTypes.Where(t => t.Name == type.Name).Any()).ToList();
             if (text == string.Empty)
                 //dgv.DataSource = list.ToList();
                 FillTable(dgv, list);
@@ -53,9 +61,11 @@ namespace HotDrop.Forms
                 t.Description.Contains(text) ||
                 t.Solution.Contains(text) ||
                 t.Comments.Contains(text) ||
-                (t.Tags.Where(tag => tag.Name == text).Count() > 0)).ToList();
+                t.GetTagsString().Contains(text)
+                ).ToList();
 
                 //dgv.DataSource = list.ToList();
+
                 FillTable(dgv, list.ToList());
             }
 
@@ -74,14 +84,14 @@ namespace HotDrop.Forms
                 {
                     Name = "Description",
                     HeaderText = "Описание",
-                    Width = 200,
+                    Width = 300,
                 },
 
                 new DataGridViewTextBoxColumn
                 {
                     Name = "Solution",
                     HeaderText = "Решение",
-                    Width = 200,
+                    Width = 300,
                 },
 
                 new DataGridViewTextBoxColumn
@@ -112,12 +122,28 @@ namespace HotDrop.Forms
             {
                 var rowNum = dgv.Rows.Add();
                 var row = dgv.Rows[rowNum];
-                row.Cells["Description"].Value = cell.Description;
-                row.Cells["Solution"].Value = cell.Solution;
+                row.Cells["Description"].Value = GetText(cell.Description);
+                row.Cells["Solution"].Value = GetText(cell.Solution);
                 row.Cells["Heat"].Value = cell.Heat;
                 row.Cells["Id"].Value = cell.Id;
-                row.Cells["CreationDate"].Value = cell.CreationDate;                
+                row.Cells["CreationDate"].Value = cell.CreationDate;
             }
+        }
+
+        private string GetText(string html)
+        {
+            try
+            {
+                var doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(html);
+                return doc.DocumentNode.SelectSingleNode("//body").InnerText;
+            }
+
+            catch
+            {
+                return html;
+            }
+
         }
 
 
@@ -133,12 +159,13 @@ namespace HotDrop.Forms
 
         private void dataGridView_CellDoubleClick(object sender, EventArgs e)
         {
-            var dgv = (DataGridView) sender;
+            var dgv = (DataGridView)sender;
 
             if (dgv.CurrentRow != null)
             {
-                var id = int.Parse((string)dgv.CurrentRow.Cells[4].Value);
-                var call = db.KnowledgeCells.Single(x => x.Id == id);
+                var id = (int)dgv.CurrentRow.Cells[3].Value;
+                var call =
+                    db.KnowledgeCells.Single(x => x.Id == id);
 
                 var form = new KnowledgeCellForm(call);
                 form.ShowDialog();
@@ -158,5 +185,19 @@ namespace HotDrop.Forms
             filterTextBox.Clear();
             RefreshTable();
         }
+
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            CreateFile();
+        }
+
+        private void CreateFile()
+        {
+            PDFExporter exporter = new PDFExporter();
+            var list = db.KnowledgeCells.ToList();
+            list.Sort();
+            exporter.ExportToFile(list, "Шпаргалка ЛО.pdf");
+        }
+
     }
 }

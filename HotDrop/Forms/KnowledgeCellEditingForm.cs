@@ -68,7 +68,8 @@ namespace HotDrop.Forms
             cell.SetDocumetTypes(documentsTypesTextBox.Text);
             cell.SetTags(tagsTextBox.Text);
 
-            Program.dataBase.KnowledgeCells.Add(cell);
+            if(cell.Id<1)
+            Program.dataBase.KnowledgeCells.Add(cell);            
             Program.dataBase.SaveChanges();
 
             DialogResult = DialogResult.OK;

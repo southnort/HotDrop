@@ -31,4 +31,6 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Forms.K
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase2.resources
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.Migrations.KnowledgeDataBase3.resources
-C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.csprojAssemblyReference.cache
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\HtmlAgilityPack.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\HtmlAgilityPack.xml
