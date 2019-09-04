@@ -66,6 +66,10 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Common.Logging.pd
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Common.Logging.xml
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Common.Logging.Core.pdb
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Common.Logging.Core.xml
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\Independentsoft.Office.Odf.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\OpenHtmlToPdf.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\itextsharp.dll
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\itextsharp.xml
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\itext.barcodes.dll
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\itext.forms.dll
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Debug\itext.html2pdf.dll

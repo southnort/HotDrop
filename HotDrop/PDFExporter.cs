@@ -5,58 +5,67 @@ using System.Text;
 using System.Threading.Tasks;
 using HotDrop.Models;
 using System.IO;
-using HtmlAgilityPack;
-using System.Xml;
 using iText.Html2pdf;
+using iText.Kernel.Pdf;
+using iText.Kernel.Geom;
+using iText.Layout;
 
 
 namespace HotDrop
 {
     public class PDFExporter
     {
-        private string htmlFileName = "html.html";
-
         public void ExportToFile(List<KnowledgeCell> cells, string fileName)
         {
-            var pdfPath = Environment.GetFolderPath
-                (Environment.SpecialFolder.DesktopDirectory) +
-                "\\" + fileName ;
-            var htmlPath = Environment.GetFolderPath
-                (Environment.SpecialFolder.DesktopDirectory) +
-                "\\" + htmlFileName;
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+                + "\\" + fileName;
 
-            var html = GetContent(cells);
-            File.WriteAllText(htmlPath, html);
+            var html = CreateDocument(cells);
+            var writer = new PdfWriter(new FileInfo(path));
+            ConverterProperties props = new ConverterProperties();
+            PdfDocument pdfDocument = new PdfDocument(writer);
+            pdfDocument.SetDefaultPageSize(new PageSize(PageSize.A4.Rotate()));
 
-            HtmlConverter.ConvertToPdf(
-                new FileInfo(htmlPath),
-                new FileInfo(pdfPath)
-    );
+            Document document = HtmlConverter.ConvertToDocument(html, 
+                pdfDocument, props);
 
-           // File.Delete(htmlPath);
+            document.Close();
 
+
+
+
+
+            //Document document = HtmlConverter.ConvertToDocument(html, writer);
+            //var pdfDoc = document.GetPdfDocument();
+            //document.Close();
+
+            //Document doc = new Document(pdfDoc, new iText.Kernel.Geom.PageSize(297, 210));
+
+            //HtmlConverter.ConvertToPdf(writer, doc.GetPdfDocument());
+
+            //doc.Close();
         }
 
-        private string GetContent(List<KnowledgeCell> cells)
+        private string CreateDocument(List<KnowledgeCell> cells)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("<html><body><table>");
+            sb.Append("<html><body><table border=\"1\">");
             sb.Append("<tr>");
 
-            sb.Append("<th>Тип</th>");
-            sb.Append("<th>Описание проблемы</th>");
-            sb.Append("<th>Описание решения</th>");
-            sb.Append("<th>Комментарии</th>");
+            //sb.Append("<th>Тип</th>");
+            sb.Append("<th width=\"20%\">Описание проблемы</th>");
+            sb.Append("<th width=\"60%\">Описание решения</th>");
+            sb.Append("<th width=\"20%\">Комментарии</th>");
             sb.Append("</tr>");
 
             foreach (var cell in cells)
             {
                 sb.Append("<tr>");
 
-                sb.Append($"<td>{cell.GetTypesString()}</td>");
-                sb.Append($"<td>{cell.Description}</td>");
-                sb.Append($"<td>{cell.Solution}</td>");
-                sb.Append($"<td>{cell.Comments}</td>");
+                //sb.Append(GetValue(cell.GetTypesString()));
+                sb.Append(GetValue(cell.Description));
+                sb.Append(GetValue(cell.Solution));
+                sb.Append(GetValue(cell.Comments));                
 
                 sb.Append("</tr>");
             }
@@ -64,8 +73,20 @@ namespace HotDrop
             sb.Append("</table></body></html>");
 
             return sb.ToString();
-
         }
+
+        private string GetValue(string input)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<td>");
+            sb.Append(input.Replace("<body>", "").Replace("</body>", "")
+                .Replace("<html>", "").Replace("</html>", ""));
+            sb.Append("</td>");
+
+            return sb.ToString();
+        }
+
+
 
     }
 }

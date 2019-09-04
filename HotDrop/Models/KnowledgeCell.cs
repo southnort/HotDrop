@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Globalization;
 
 namespace HotDrop.Models
 {
@@ -118,7 +119,20 @@ namespace HotDrop.Models
             var other = (KnowledgeCell)obj;
             if (Heat > other.Heat) return 1;
             else if (Heat < other.Heat) return -1;
-            else return 0;
+            else
+            {
+                var date1 = DateTime.ParseExact(CreationDate, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
+                var date2 = DateTime.ParseExact(other.CreationDate, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
+
+                if (date1 > date2)
+
+                    return 1;
+                else
+                    return -1;
+
+            }
+
+
         }
     }
 }

@@ -193,10 +193,24 @@ namespace HotDrop.Forms
 
         private void CreateFile()
         {
-            PDFExporter exporter = new PDFExporter();
-            var list = db.KnowledgeCells.ToList();
-            list.Sort();
-            exporter.ExportToFile(list, "Шпаргалка ЛО.pdf");
+            var exporter = new PDFExporter();
+            string resultString = "Выполнено успешно";
+            try
+            {
+                var list = db.KnowledgeCells.ToList();
+                list.Sort();
+                exporter.ExportToFile(list, "Шпаргалка ЛО.pdf");                
+            }
+            catch (Exception ex)
+            {
+                resultString = ex.ToString();
+            }
+
+            finally
+            {
+                MessageBox.Show(resultString);
+            }
+
         }
 
     }

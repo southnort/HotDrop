@@ -66,6 +66,9 @@
     <Reference Include="HtmlAgilityPack, Version=1.11.12.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.11.12\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="Independentsoft.Office.Odf, Version=2.0.520.1, Culture=neutral, PublicKeyToken=76be97fe952f1ec7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Independentsoft.Office.Odf.2.0.530\lib\net45\Independentsoft.Office.Odf.dll</HintPath>
+    </Reference>
     <Reference Include="itext.barcodes, Version=7.1.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.1.7\lib\net40\itext.barcodes.dll</HintPath>
     </Reference>
@@ -95,6 +98,12 @@
     </Reference>
     <Reference Include="itext.svg, Version=7.1.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.1.7\lib\net40\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenHtmlToPdf, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenHtmlToPdf.1.12.0.0\lib\net45\OpenHtmlToPdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -204,6 +213,7 @@
     <Compile Include="Models\KnowledgeCellType.cs" />
     <Compile Include="Models\TrackingCell.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="ODTExporter.cs" />
     <Compile Include="PDFExporter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,6 +283,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Html.html" />
     <Content Include="Untitled-1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
