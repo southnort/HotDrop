@@ -117,14 +117,14 @@ namespace HotDrop.Models
         int IComparable.CompareTo(object obj)
         {
             var other = (KnowledgeCell)obj;
-            if (Heat > other.Heat) return 1;
-            else if (Heat < other.Heat) return -1;
+            if (Heat > other.Heat) return -1;
+            else if (Heat < other.Heat) return 1;
             else
             {
                 var date1 = DateTime.ParseExact(CreationDate, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
                 var date2 = DateTime.ParseExact(other.CreationDate, "yyyy-MM-dd-HH-mm", CultureInfo.InvariantCulture);
 
-                if (date1 > date2)
+                if (date1 < date2)
 
                     return 1;
                 else
