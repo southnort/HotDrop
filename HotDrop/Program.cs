@@ -24,8 +24,7 @@ namespace HotDrop
         private static void StartDataBases()
         {
             //настраиваем соединения с БД            
-            dataBase = new HotDropContext();
-            int num = dataBase.CallCells.Count();            
+            dataBase = new HotDropContext();                  
         }
     }
 }

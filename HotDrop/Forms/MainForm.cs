@@ -93,8 +93,8 @@ namespace HotDrop
 
             Thread savingThread = new Thread(() =>
             {
-               Program.dataBase.CallCells.Add(cc);
-               Program.dataBase.SaveChanges();
+                Program.dataBase.CallCells.Add(cc);
+                Program.dataBase.SaveChanges();
             });
             savingThread.Start();
 
@@ -178,7 +178,8 @@ namespace HotDrop
 
         private void pgButton_Click(object sender, EventArgs e)
         {
-            var url = $@"http://zakupki.gov.ru/epz/orderplan/quicksearch/search.html?searchString={ikz.Text}&morphology=on&searchType=false&structured=true&fz44=on&fz223=on&regionDeleted=false&actualPeriodStart=01.01.2019&actualPeriodEnd=31.12.2019&sortBy=BY_MODIFY_DATE&pageNumber=1&sortDirection=false&recordsPerPage=_10";
+            var url = $@"https://zakupki.gov.ru/epz/orderplan/search/results.html?searchString={ikz.Text}&morphology=on&search-filter=Дате+размещения&structured=true&fz44=on&customerPlaceWithNested=on&sortBy=BY_MODIFY_DATE&pageNumber=1&sortDirection=false&recordsPerPage=_10&searchType=false";
+            //var url = $@"http://zakupki.gov.ru/epz/orderplan/quicksearch/search.html?searchString={ikz.Text}&morphology=on&searchType=false&structured=true&fz44=on&fz223=on&regionDeleted=false&actualPeriodStart=01.01.2019&actualPeriodEnd=31.12.2019&sortBy=BY_MODIFY_DATE&pageNumber=1&sortDirection=false&recordsPerPage=_10";
             OpenLink(url);
         }
 
