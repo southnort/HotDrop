@@ -66,3 +66,4 @@ C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\itext.sign.xml
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\itext.styledxmlparser.xml
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\itext.svg.xml
 C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\bin\Release\itextsharp.xml
+C:\Users\Ярик\Documents\Projects\HotDrop\HotDrop\obj\Release\HotDrop.csprojAssemblyReference.cache

@@ -5,12 +5,20 @@ using HotDrop.Forms;
 using System.Drawing;
 using System.Diagnostics;
 using System.Threading;
+using System.Linq;
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Xml.XPath;
 
 
 namespace HotDrop
 {
     public partial class MainForm : Form
     {
+        private Settings settings;
+        private string saveFileName = "hotdropsavefile.xml";
+
         public MainForm()
         {
             InitializeComponent();
@@ -26,7 +34,14 @@ namespace HotDrop
             richTextBox1.Text = requestText;
             richTextBox2.Text = "Обращение заказчика";
 
-
+            try
+            {
+                LoadSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -211,6 +226,58 @@ namespace HotDrop
         {
             var url = $@"http://zakupki.gov.ru/epz/contract/quicksearch/search.html?searchString={ikz.Text}&morphology=on&pageNumber=1&sortDirection=false&recordsPerPage=_10&sortBy=PO_DATE_OBNOVLENIJA&fz44=on&contractPriceFrom=0&contractPriceTo=200000000000&contractStageList_0=on&contractStageList_1=on&contractStageList_2=on&contractStageList_3=on&contractStageList=0%2C1%2C2%2C3&regionDeleted=false";
             OpenLink(url);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var item = Program.dataBase.CallCells
+                .OrderByDescending(x => x.CallDateTime)
+                .FirstOrDefault();
+            if (item != null)
+            {
+                inn.Text = item.Inn;
+                phoneNumber.Text = item.PhoneNumber;
+                clientName.Text = item.ClientName;
+                requestDescription.Text = item.Descr;
+            }
+        }
+
+
+
+        private void SaveSettings()
+        {
+            settings.field1 = richTextBox4.Text;
+            settings.field2 = richTextBox3.Text;
+
+            var directory = Environment
+                .GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                + "\\" + saveFileName;
+            XmlSerializer ser = new XmlSerializer(typeof(Settings));
+            TextWriter tw = new StreamWriter(directory);
+            ser.Serialize(tw, settings);
+            tw.Close();
+        }
+
+        private void LoadSettings()
+        {
+            var directory = Environment
+                .GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                + "\\" + saveFileName;
+            if (File.Exists(directory))
+            {
+                string xData = File.ReadAllText(directory);
+                XmlSerializer x = new XmlSerializer(typeof(Settings));
+                settings = (Settings)x.Deserialize(new StringReader(xData));
+
+                richTextBox3.Text = settings.field2;
+                richTextBox4.Text = settings.field1;
+            }
+            else settings = new Settings();
+        }
+
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            SaveSettings();
         }
     }
 }

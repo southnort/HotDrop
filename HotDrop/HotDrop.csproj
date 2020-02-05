@@ -211,6 +211,7 @@
     <Compile Include="Models\KnowledgeCell.cs" />
     <Compile Include="Models\KnowledgeCellTag.cs" />
     <Compile Include="Models\KnowledgeCellType.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\TrackingCell.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="ODTExporter.cs" />

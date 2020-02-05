@@ -60,6 +60,7 @@
             this.contractButton = new System.Windows.Forms.Button();
             this.allQuotesButton = new System.Windows.Forms.Button();
             this.allContractsButton = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inn
@@ -259,6 +260,7 @@
             this.richTextBox3.Size = new System.Drawing.Size(197, 101);
             this.richTextBox3.TabIndex = 22;
             this.richTextBox3.Text = "";
+            this.richTextBox3.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // richTextBox4
             // 
@@ -269,6 +271,7 @@
             this.richTextBox4.Size = new System.Drawing.Size(197, 101);
             this.richTextBox4.TabIndex = 21;
             this.richTextBox4.Text = "";
+            this.richTextBox4.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // button1
             // 
@@ -387,11 +390,24 @@
             this.allContractsButton.UseVisualStyleBackColor = true;
             this.allContractsButton.Click += new System.EventHandler(this.allContractsButton_Click);
             // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button5.BackColor = System.Drawing.Color.MistyRose;
+            this.button5.Location = new System.Drawing.Point(356, 253);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(74, 36);
+            this.button5.TabIndex = 34;
+            this.button5.Text = "Вернуть";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 442);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.allContractsButton);
             this.Controls.Add(this.allQuotesButton);
             this.Controls.Add(this.contractButton);
@@ -464,5 +480,6 @@
         private System.Windows.Forms.Button contractButton;
         private System.Windows.Forms.Button allQuotesButton;
         private System.Windows.Forms.Button allContractsButton;
+        private System.Windows.Forms.Button button5;
     }
 }
